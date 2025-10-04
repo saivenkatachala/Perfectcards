@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Cards & Printers - Services</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7; /* Light, professional background */
+            color: #1f2937; /* Dark text for contrast */
+        }
+        .card-service {
+            transition: all 0.3s ease;
+            /* Lighter, more elegant shadow */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-bottom: 4px solid transparent; /* Prepare for hover border */
+        }
+        .card-service:hover {
+            transform: translateY(-5px);
+            /* Subtle indigo glow on hover */
+            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.2); 
+            border-color: #4f46e5; /* Indigo bottom border on hover */
+        }
+        .btn-primary {
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        .btn-primary:hover {
+            transform: scale(1.02);
+        }
+        /* Modal Backdrop (Lighter opacity for professional feel) */
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md border-b border-indigo-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-extrabold text-indigo-600">Perfect Cards & Printers</h1>
+            <nav class="space-x-6 hidden sm:block">
+                <a href="#services" class="text-gray-600 hover:text-indigo-600 font-medium transition">Our Services</a>
+                <a href="#gallery" class="text-gray-600 hover:text-indigo-600 font-medium transition">Gallery</a>
+                <a href="#contact-form-trigger" class="text-gray-600 hover:text-indigo-600 font-medium transition">Inquire</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-28 text-center bg-cover rounded-xl mt-4 shadow-xl"
+             style="background-image: url('https://placehold.co/1200x400/374151/d1d5db?text=Perfect+Prints+for+Every+Need'); background-position: center;">
+        <h2 class="text-5xl md:text-7xl font-extrabold text-white mb-4 drop-shadow-xl leading-tight">
+            Design. Print. Deliver.
+        </h2>
+        <p class="text-xl text-gray-200 max-w-4xl mx-auto mb-10 bg-black/40 p-3 rounded-lg shadow-lg">
+            Elevate your brand with stunning graphic designs and high-quality printing solutions, delivered right from Chatta Bazar.
+        </p>
+        <button class="btn-primary bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-3 px-8 rounded-full shadow-2xl shadow-indigo-500/50"
+                onclick="openContactModal('General Inquiry')">
+            Get a Quote Today
+        </button>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-4xl font-bold text-center text-gray-800 mb-16">Our Core Services</h3>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
+                <!-- Service Card: Graphic Design (Image added) -->
+                <div class="card-service bg-white rounded-xl shadow-lg flex flex-col overflow-hidden">
+                    <img src="https://placehold.co/500x300/e0e7ff/4338ca?text=Graphic+Design" alt="Graphic Design Service" class="w-full h-40 object-cover">
+                    <div class="p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Graphic Design</h4>
+                            <p class="text-gray-600 text-sm mb-4">Conceptualizing and creating custom visual content for all your printing needs.</p>
+                        </div>
+                        <button class="btn-primary mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg"
+                                onclick="openContactModal('Graphic Design')">Inquire</button>
+                    </div>
+                </div>
+
+                <!-- Service Card: Business Cards (Image added) -->
+                <div class="card-service bg-white rounded-xl shadow-lg flex flex-col overflow-hidden">
+                    <img src="https://placehold.co/500x300/c7d2fe/4338ca?text=Business+Cards" alt="Business Cards Printing" class="w-full h-40 object-cover">
+                    <div class="p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Business Cards</h4>
+                            <p class="text-gray-600 text-sm mb-4">High-quality printing and design for professional and memorable business cards.</p>
+                        </div>
+                        <button class="btn-primary mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg"
+                                onclick="openContactModal('Business Cards')">Inquire</button>
+                    </div>
+                </div>
+
+                <!-- Service Card: Logo Design (Image added) -->
+                <div class="card-service bg-white rounded-xl shadow-lg flex flex-col overflow-hidden">
+                    <img src="https://placehold.co/500x300/a5b4fc/4338ca?text=Brand+Identity" alt="Logo Design Service" class="w-full h-40 object-cover">
+                    <div class="p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Logo Design</h4>
+                            <p class="text-gray-600 text-sm mb-4">Crafting unique and impactful logos that define your brand identity.</p>
+                        </div>
+                        <button class="btn-primary mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg"
+                                onclick="openContactModal('Logo Design')">Inquire</button>
+                    </div>
+                </div>
+
+                <!-- Service Card: CDR Templates (Image added) -->
+                <div class="card-service bg-white rounded-xl shadow-lg flex flex-col overflow-hidden">
+                    <img src="https://placehold.co/500x300/93c5fd/4338ca?text=Print+Templates" alt="Corel Draw Templates" class="w-full h-40 object-cover">
+                    <div class="p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">CDR Templates (Corel Draw)</h4>
+                            <p class="text-gray-600 text-sm mb-4">Customizable templates in Corel Draw format for quick and professional design creation.</p>
+                        </div>
+                        <button class="btn-primary mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg"
+                                onclick="openContactModal('CDR Templates')">Inquire</button>
+                    </div>
+                </div>
+                
+                <!-- Service Card: Bill Books (Image added) -->
+                <div class="card-service bg-white rounded-xl shadow-lg flex flex-col overflow-hidden">
+                    <img src="https://placehold.co/500x300/7dd3fc/4338ca?text=Custom+Invoices" alt="Bill Book Printing" class="w-full h-40 object-cover">
+                    <div class="p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Bill Books</h4>
+                            <p class="text-gray-600 text-sm mb-4">Professional printing for custom invoice books, receipt books, and ledgers for business operations.</p>
+                        </div>
+                        <button class="btn-primary mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg"
+                            onclick="openContactModal('Bill Books')">Inquire</button>
+                    </div>
+                </div>
+
+                <!-- Service Card: Handbills / Flyers (Image added) -->
+                <div class="card-service bg-white rounded-xl shadow-lg flex flex-col overflow-hidden">
+                    <img src="https://placehold.co/500x300/bae6fd/4338ca?text=Flyers+%26+Handbills" alt="Handbills and Flyers Printing" class="w-full h-40 object-cover">
+                    <div class="p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Handbills & Flyers</h4>
+                            <p class="text-gray-600 text-sm mb-4">Eye-catching design and quick turnaround printing for promotional handbills and flyers.</p>
+                        </div>
+                        <button class="btn-primary mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg"
+                                onclick="openContactModal('Handbills / Flyers')">Inquire</button>
+                    </div>
+                </div>
+
+                <!-- Service Card: Wedding Cards (Image added) -->
+                <div class="card-service bg-white rounded-xl shadow-lg flex flex-col overflow-hidden">
+                    <img src="https://placehold.co/500x300/a78bfa/4338ca?text=Elegant+Invitations" alt="Wedding Cards & Invitations" class="w-full h-40 object-cover">
+                    <div class="p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Wedding Cards & Invitations</h4>
+                            <p class="text-gray-600 text-sm mb-4">Elegant and personalized invitations, wedding cards, and stationery for special occasions.</p>
+                        </div>
+                        <button class="btn-primary mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg"
+                                onclick="openContactModal('Wedding Cards')">Inquire</button>
+                    </div>
+                </div>
+
+                <!-- Service Card: Brochures (Image added) -->
+                <div class="card-service bg-white rounded-xl shadow-lg flex flex-col overflow-hidden">
+                    <img src="https://placehold.co/500x300/c4b5fd/4338ca?text=Product+Brochures" alt="Brochures and Catalogs Printing" class="w-full h-40 object-cover">
+                    <div class="p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Brochures & Catalogs</h4>
+                            <p class="text-gray-600 text-sm mb-4">Multi-page designs and professional printing for detailed business brochures and product catalogs.</p>
+                        </div>
+                        <button class="btn-primary mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg"
+                                onclick="openContactModal('Brochures')">Inquire</button>
+                    </div>
+                </div>
+
+                <!-- Service Card: T-Shirt Design (Image added) -->
+                <div class="card-service bg-white rounded-xl shadow-lg flex flex-col overflow-hidden">
+                    <img src="https://placehold.co/500x300/ddd6fe/4338ca?text=Apparel+Printing" alt="T-Shirt Design and Printing" class="w-full h-40 object-cover">
+                    <div class="p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">T-Shirt Design & Printing</h4>
+                            <p class="text-gray-600 text-sm mb-4">Custom artwork and high-quality printing for apparel and merchandising.</p>
+                        </div>
+                        <button class="btn-primary mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg"
+                                onclick="openContactModal('T-Shirt Design')">Inquire</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-gray-50 border-t border-indigo-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-4xl font-bold text-center text-gray-800 mb-4">Our Portfolio</h3>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                A selection of our latest work showcasing quality and creativity in design and print.
+            </p>
+
+            <!-- Gallery Grid (Placeholders retained, but colors updated for the new theme) -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Placeholder 1: Business Card -->
+                <div class="overflow-hidden rounded-lg shadow-xl hover:shadow-indigo-500/50 transition duration-300">
+                    <img src="https://placehold.co/500x350/3b82f6/ffffff?text=Business+Cards" alt="Sample Business Card" class="w-full h-full object-cover">
+                </div>
+                <!-- Placeholder 2: Brochure -->
+                <div class="overflow-hidden rounded-lg shadow-xl hover:shadow-indigo-500/50 transition duration-300">
+                    <img src="https://placehold.co/500x700/6366f1/ffffff?text=Brochure+Design" alt="Sample Brochure" class="w-full h-full object-cover">
+                </div>
+                <!-- Placeholder 3: T-Shirt Print -->
+                <div class="overflow-hidden rounded-lg shadow-xl hover:shadow-indigo-500/50 transition duration-300">
+                    <img src="https://placehold.co/500x500/10b981/ffffff?text=T-Shirt+Print" alt="Sample T-Shirt Print" class="w-full h-full object-cover">
+                </div>
+                <!-- Placeholder 4: Handbill/Flyer -->
+                <div class="overflow-hidden rounded-lg shadow-xl hover:shadow-indigo-500/50 transition duration-300">
+                    <img src="https://placehold.co/500x400/f97316/ffffff?text=Handbill+Design" alt="Sample Handbill" class="w-full h-full object-cover">
+                </div>
+                <!-- Placeholder 5: Wedding Card -->
+                <div class="overflow-hidden rounded-lg shadow-xl hover:shadow-indigo-500/50 transition duration-300">
+                    <img src="https://placehold.co/500x500/ec4899/ffffff?text=Wedding+Card" alt="Sample Wedding Card" class="w-full h-full object-cover">
+                </div>
+                <!-- Placeholder 6: Logo Mockup -->
+                <div class="overflow-hidden rounded-lg shadow-xl hover:shadow-indigo-500/50 transition duration-300">
+                    <img src="https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design" alt="Sample Logo Design" class="w-full h-full object-cover">
+                </div>
+                <!-- Placeholder 7: Bill Book -->
+                <div class="overflow-hidden rounded-lg shadow-xl hover:shadow-indigo-500/50 transition duration-300">
+                    <img src="https://placehold.co/500x700/06b6d4/ffffff?text=Bill+Book+Layout" alt="Sample Bill Book" class="w-full h-full object-cover">
+                </div>
+                <!-- Placeholder 8: CDR Template -->
+                <div class="overflow-hidden rounded-lg shadow-xl hover:shadow-indigo-500/50 transition duration-300">
+                    <img src="https://placehold.co/500x400/f59e0b/ffffff?text=CDR+Template+Example" alt="Sample CDR Template" class="w-full h-full object-cover">
+                </div>
+            </div>
+             <p class="text-center text-sm text-gray-500 mt-8">
+                NOTE: To display your actual past works, replace the `src` attribute of the `<img>` tags above with publicly accessible links to your images.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- Footer Section with Address -->
+    <footer id="contact-form-trigger" class="bg-gray-800 py-10 border-t border-indigo-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:flex md:justify-between md:items-center">
+            
+            <div class="mb-6 md:mb-0">
+                <h4 class="text-xl font-bold text-indigo-300 mb-2">Perfect Cards & Printers</h4>
+                <p class="text-gray-400 text-sm">Design & Print Experts in Chatta Bazar</p>
+            </div>
+
+            <div class="text-gray-400 text-sm mb-6 md:mb-0">
+                <h5 class="font-semibold text-white mb-1">Our Location:</h5>
+                <p>No. 22-7-245, opp. Deccan Stationery,</p>
+                <p>Main Road, Chatta Bazar-500002</p>
+            </div>
+
+            <div>
+                <a href="#contact-modal" onclick="openContactModal('General Inquiry')"
+                   class="btn-primary bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-6 rounded-full text-sm shadow-md">
+                    Start Your Project
+                </a>
+            </div>
+        </div>
+        <div class="text-center text-gray-600 text-xs mt-8 border-t border-gray-700 pt-4">
+            &copy; 2025 Perfect Cards & Printers. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Contact Modal (Hidden by default) -->
+    <div id="contact-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center modal-backdrop transition-opacity duration-300">
+        <div class="bg-white p-8 rounded-xl shadow-2xl max-w-lg w-full m-4 border-t-8 border-indigo-600 transform scale-95 transition-transform duration-300"
+             id="modal-content">
+            
+            <h4 class="text-3xl font-bold text-gray-800 mb-6">Inquire About <span id="service-title" class="text-indigo-600">...</span></h4>
+            
+            <!-- Close Button -->
+            <button onclick="closeContactModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <!-- Contact Form -->
+            <form id="contact-form" class="space-y-4">
+                
+                <input type="hidden" id="service-source-input" name="ServiceSource">
+
+                <!-- Status Message Box (for success/error) -->
+                <div id="status-message" class="hidden p-3 rounded-lg text-sm font-medium"></div>
+
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Full Name</label>
+                    <input type="text" id="name" name="Name" required
+                           class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-800 focus:ring-indigo-500 focus:border-indigo-500">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input type="email" id="email" name="Email" required
+                               class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-800 focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label for="number" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                        <input type="tel" id="number" name="Number" 
+                               class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-800 focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Project Details / Message</label>
+                    <textarea id="message" name="Message" rows="4" required
+                              class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-800 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                </div>
+
+                <button type="submit" id="submit-button"
+                        class="w-full btn-primary bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-3 rounded-full shadow-lg transition duration-150">
+                    Send Inquiry
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // NOTE: REPLACE THIS WITH YOUR DEPLOYED GOOGLE APPS SCRIPT URL
+        const APP_SCRIPT_URL = 'YOUR_DEPLOYED_WEB_APP_URL_HERE'; 
+
+        const modal = document.getElementById('contact-modal');
+        const modalContent = document.getElementById('modal-content');
+        const serviceTitle = document.getElementById('service-title');
+        const serviceSourceInput = document.getElementById('service-source-input');
+        const form = document.getElementById('contact-form');
+        const statusMessage = document.getElementById('status-message');
+        const submitButton = document.getElementById('submit-button');
+
+        function openContactModal(service) {
+            serviceTitle.textContent = service;
+            serviceSourceInput.value = service;
+            
+            // Reset form and message
+            form.reset();
+            hideStatusMessage();
+            submitButton.disabled = false;
+            submitButton.textContent = 'Send Inquiry';
+
+            modal.classList.remove('hidden');
+            // Animate in
+            setTimeout(() => {
+                modal.style.opacity = '1';
+                modalContent.style.transform = 'scale(1)';
+            }, 10);
+        }
+
+        function closeContactModal() {
+            // Animate out
+            modal.style.opacity = '0';
+            modalContent.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function showStatusMessage(isSuccess, message) {
+            statusMessage.textContent = message;
+            statusMessage.classList.remove('hidden', 'bg-red-100', 'text-red-700', 'bg-green-100', 'text-green-700');
+            if (isSuccess) {
+                statusMessage.classList.add('bg-green-100', 'text-green-700');
+            } else {
+                statusMessage.classList.add('bg-red-100', 'text-red-700');
+            }
+        }
+
+        function hideStatusMessage() {
+            statusMessage.classList.add('hidden');
+        }
+
+        // Handle modal closing when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeContactModal();
+            }
+        });
+
+
+        // FORM SUBMISSION LOGIC (Note: The Google App Script URL still needs to be configured)
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            if (APP_SCRIPT_URL === 'YOUR_DEPLOYED_WEB_APP_URL_HERE') {
+                showStatusMessage(false, 'Error: Please replace APP_SCRIPT_URL with your deployed Google Apps Script URL.');
+                return;
+            }
+
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            hideStatusMessage();
+
+            const formData = new FormData(form);
+            const params = new URLSearchParams(formData).toString();
+            
+            try {
+                // Use fetch for a clean AJAX submission
+                const response = await fetch(`${APP_SCRIPT_URL}?${params}`, {
+                    method: 'POST',
+                    mode: 'cors'
+                });
+
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    showStatusMessage(true, 'Inquiry sent successfully! We will contact you soon.');
+                    // Optionally, clear the form after successful submission
+                    form.reset(); 
+                    submitButton.textContent = 'Sent!';
+                } else {
+                    showStatusMessage(false, result.message || 'Submission failed on the server side.');
+                    submitButton.textContent = 'Try Again';
+                    submitButton.disabled = false;
+                }
+
+            } catch (error) {
+                console.error('Network or Parse Error:', error);
+                showStatusMessage(false, 'An unexpected error occurred. Please try again.');
+                submitButton.textContent = 'Try Again';
+                submitButton.disabled = false;
+            }
+        });
+
+        // Add keyboard accessibility for modal (Escape key)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeContactModal();
+            }
+        });
+    </script>
+</body>
+</html>
