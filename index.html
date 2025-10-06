@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="lh.png">
     <title>Perfect Cards & Printers - Premium Services</title>
     <script>
         // Tailwind config moved before the Tailwind script import
@@ -13,6 +12,8 @@
                     colors: {
                         'p-navy': '#071952', // Custom Navy Blue
                         'p-gold': '#F7B700', // Custom Gold/Yellow
+                        'p-dark-grey': '#323232', // New Dark Grey Text
+                        'p-beige': '#DDD0C8', // New Beige Background
                     }
                 }
             }
@@ -25,17 +26,18 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7f7f7;
-            color: #1f2937;
+            background-color: #DDD0C8; /* New Beige Background */
+            color: #323232; /* New Dark Grey Text */
         }
         /* Apply Serif font to all main headings */
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
         }
         .card-service {
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            border-bottom: 4px solid transparent;
+            border: 1px solid #e5e7eb; /* Subtle border for better visibility on beige */
+            perspective: 1000px; /* For 3D transform */
         }
         .card-service:hover {
             transform: translateY(-5px);
@@ -43,6 +45,56 @@
             box-shadow: 0 15px 30px rgba(7, 25, 82, 0.2); 
             border-color: #071952; /* Navy bottom border on hover */
         }
+
+        /* --- New Service Card Animation CSS --- */
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .card-service:hover .card-inner {
+            transform: rotateY(10deg) scale(1.03); /* Subtle 3D tilt */
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            border-radius: 0.75rem; /* rounded-xl */
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .card-front {
+            background-color: white;
+            z-index: 2;
+        }
+
+        .card-back {
+            background-color: #f3f4f6; /* bg-gray-100 */
+            transform: rotateY(180deg);
+            z-index: 1;
+            padding: 1.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Overriding flex-grow from old card-service class */
+        .card-service > .p-6 {
+            padding: 0; /* Removing padding from parent, adding it to card-front */
+        }
+        /* Making the card-service a fixed height to allow the flip animation */
+        .card-service {
+            height: 400px; 
+        }
+
+        /* Adjusting existing styles to new colors */
         .btn-primary {
             transition: background-color 0.2s, transform 0.1s;
         }
@@ -88,21 +140,50 @@
         .rotate-180 {
             transform: rotate(180deg);
         }
+
+
+
+
+
+
+        .shining-text {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  background: linear-gradient(90deg, #323232, #F7B700, #323232);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
     </style>
 </head>
 <body class="min-h-screen">
 
-    <header class="sticky top-0 z-50 bg-[#000080] shadow-md border-b border-[#1a1a40]/20">
+    <header class="sticky top-0 z-50 bg-[#DDD0C8] shadow-md border-b border-gray-700/20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-        <h1 class="text-2xl md:text-3xl font-extrabold text-white">Perfect Cards & Printers</h1>
+        <div class="flex items-center space-x-3">
+            <img src="logo.png" alt="PCP Logo" class="h-10 w-10 rounded-full border-2 border-p-gold" />
+            <h1 class="shining-text text-2xl md:text-3xl font-extrabold text-[#323232]">
+  Perfect Cards & Printers
+</h1>
+
+        </div>
+        
         <nav class="space-x-4 md:space-x-6 hidden sm:flex">
-            <a href="#services" class="text-white hover:text-yellow-400 font-medium transition">Our Services</a>
-            <a href="#gallery" class="text-white hover:text-yellow-400 font-medium transition">Gallery</a>
-            <a href="#faq" class="text-white hover:text-yellow-400 font-medium transition">FAQ</a>
-            <a href="#reviews" class="text-white hover:text-yellow-400 font-medium transition">Reviews</a>
-            <a href="#contact-form-trigger" class="text-white hover:text-yellow-400 font-medium transition">Inquire</a>
+            <a href="#services" class="text-#323232 hover:text-p-gold font-medium transition">Our Services</a>
+            <a href="#gallery" class="text-#323232 hover:text-p-gold font-medium transition">Gallery</a>
+            <a href="#faq" class="text-#323232 hover:text-p-gold font-medium transition">FAQ</a>
+            <a href="#reviews" class="text-#323232 hover:text-p-gold font-medium transition">Reviews</a>
+            <a href="#contact-form-trigger" class="text-#323232 hover:text-p-gold font-medium transition">Inquire</a>
         </nav>
-        <button class="sm:hidden text-white">
+
+        <button class="sm:hidden text-#323232">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
@@ -110,26 +191,25 @@
     </div>
 </header>
 
-    <!-- Hero Section -->
-    <div class="hero-content text-center py-12 px-4">
-    <h2 class="hero-title text-3xl md:text-4xl font-extrabold text-[#000080] mb-3">
 
+    <div class="hero-content text-center py-12 px-4">
+    <h2 class="hero-title text-3xl md:text-4xl font-extrabold text-p-navy mb-3">
         Design & Print Perfect
     </h2>
 
-    <p class="hero-subtitle font-semibold text-yellow-400 text-lg md:text-xl mb-4">
+    <p class="hero-subtitle font-semibold text-p-gold text-lg md:text-xl mb-4">
         A legacy held through generations
     </p>
-    <p class="hero-subtitle font-semibold text-navy-blue-400 text-lg md:text-xl mb-4">
+    <p class="hero-subtitle font-semibold text-p-dark-grey text-lg md:text-xl mb-4">
        Premium Printing & Design — Delivered with Perfection.
     </p>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <p class="hero-description text-blue-900 max-w-3xl mx-auto italic font-light mb-6" style="font-family: 'Poppins', sans-serif;">
+    <p class="hero-description text-p-dark-grey max-w-3xl mx-auto italic font-light mb-6" style="font-family: 'Poppins', sans-serif;">
     "We design cards that reflect your brand identity — elegant, durable, and precisely printed"
     </p>
     <button 
-        class="btn-primary bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-3 px-8 rounded-full shadow-md transition-all duration-300"
+        class="btn-primary bg-p-gold hover:bg-yellow-500 text-white font-bold py-3 px-8 rounded-full shadow-md transition-all duration-300"
         onclick="openContactModal('General Inquiry')">
         Get a Quote Today
     </button>
@@ -139,124 +219,160 @@
 
     <section id="services" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-4xl font-bold text-center text-gray-800 mb-16">Our Core Services</h3>
+            <h3 class="text-4xl font-bold text-center text-p-dark-grey mb-16">Our Core Services</h3>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                <div class="card-service bg-white rounded-xl shadow-lg flex flex-col overflow-hidden">
-                    <img src="https://placehold.co/500x300/e0e7ff/071952?text=Graphic+Design" alt="Graphic Design Service" class="w-full h-40 object-cover">
-                    <div class="p-6 flex flex-col justify-between flex-grow">
-                        <div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Graphic Design</h4>
-                            <p class="text-gray-600 text-sm mb-4">Conceptualizing and creating custom visual content for all your printing needs.</p>
+                <div class="card-service rounded-xl shadow-lg">
+                    <div class="card-inner">
+                        <div class="card-front bg-white">
+                            <img src="logo.png" alt="Graphic Design Service" class="w-full h-40 object-cover rounded-t-xl">
+                            <div class="p-6 flex flex-col justify-between flex-grow">
+                                <div>
+                                    <h4 class="shining-text text-2xl md:text-3xl font-extrabold text-[#323232]">Graphic Design</h4>
+                                    <p class="text-gray-600 text-sm mb-4">Conceptualizing and creating custom visual content for all your printing needs.</p>
+                                </div>
+                               <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
+                                        onclick="openContactModal('Graphic Design')">Inquire</button>
+                            </div>
                         </div>
-                        <button class="btn-primary mt-4 bg-[#FFD700] hover:bg-[#000080] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
-                                onclick="openContactModal('Graphic Design')">Inquire</button>
                     </div>
                 </div>
 
-                <div class="card-service bg-white rounded-xl shadow-lg flex flex-col overflow-hidden">
-                    <img src="https://placehold.co/500x300/c7d2fe/071952?text=Business+Cards" alt="Business Cards Printing" class="w-full h-40 object-cover">
-                    <div class="p-6 flex flex-col justify-between flex-grow">
-                        <div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Business Cards</h4>
-                            <p class="text-gray-600 text-sm mb-4">High-quality printing and design for professional and memorable business cards.</p>
+                <div class="card-service rounded-xl shadow-lg">
+                    <div class="card-inner">
+                        <div class="card-front bg-white">
+                            <img src="https://placehold.co/500x300/c7d2fe/071952?text=Business+Cards" alt="Business Cards Printing" class="w-full h-40 object-cover rounded-t-xl">
+                            <div class="p-6 flex flex-col justify-between flex-grow">
+                                <div>
+                                    <h4 class="text-xl font-semibold text-p-dark-grey mb-3">Business Cards</h4>
+                                    <p class="text-gray-600 text-sm mb-4">High-quality printing and design for professional and memorable business cards.</p>
+                                </div>
+                                <button class="btn-primary mt-4 bg-p-gold hover:bg-p-navy text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
+                                        onclick="openContactModal('Business Cards')">Inquire</button>
+                            </div>
                         </div>
-                        <button class="btn-primary mt-4 bg-[#FFD700] hover:bg-[#000080] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
-                                onclick="openContactModal('Business Cards')">Inquire</button>
                     </div>
                 </div>
 
-                <div class="card-service bg-white rounded-xl shadow-lg flex flex-col overflow-hidden">
-                    <img src="https://placehold.co/500x300/a5b4fc/071952?text=Brand+Identity" alt="Logo Design Service" class="w-full h-40 object-cover">
-                    <div class="p-6 flex flex-col justify-between flex-grow">
-                        <div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Logo Design</h4>
-                            <p class="text-gray-600 text-sm mb-4">Crafting unique and impactful logos that define your brand identity.</p>
+                <div class="card-service rounded-xl shadow-lg">
+                    <div class="card-inner">
+                        <div class="card-front bg-white">
+                            <img src="https://placehold.co/500x300/a5b4fc/071952?text=Brand+Identity" alt="Logo Design Service" class="w-full h-40 object-cover rounded-t-xl">
+                            <div class="p-6 flex flex-col justify-between flex-grow">
+                                <div>
+                                    <h4 class="text-xl font-semibold text-p-dark-grey mb-3">Logo Design</h4>
+                                    <p class="text-gray-600 text-sm mb-4">Crafting unique and impactful logos that define your brand identity.</p>
+                                </div>
+                                <button class="btn-primary mt-4 bg-p-navy hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg"
+                                        onclick="openContactModal('Logo Design')">Inquire</button>
+                            </div>
                         </div>
-                        <button class="btn-primary mt-4 bg-p-navy hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg"
-                                onclick="openContactModal('Logo Design')">Inquire</button>
                     </div>
                 </div>
 
-                <div class="card-service bg-white rounded-xl shadow-lg flex flex-col overflow-hidden">
-                    <img src="https://placehold.co/500x300/93c5fd/071952?text=Print+Templates" alt="Corel Draw Templates" class="w-full h-40 object-cover">
-                    <div class="p-6 flex flex-col justify-between flex-grow">
-                        <div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">CDR Templates (Corel Draw)</h4>
-                            <p class="text-gray-600 text-sm mb-4">Customizable templates in Corel Draw format for quick and professional design creation.</p>
+                <div class="card-service rounded-xl shadow-lg">
+                    <div class="card-inner">
+                        <div class="card-front bg-white">
+                            <img src="https://placehold.co/500x300/93c5fd/071952?text=Print+Templates" alt="Corel Draw Templates" class="w-full h-40 object-cover rounded-t-xl">
+                            <div class="p-6 flex flex-col justify-between flex-grow">
+                                <div>
+                                    <h4 class="text-xl font-semibold text-p-dark-grey mb-3">CDR Templates (Corel Draw)</h4>
+                                    <p class="text-gray-600 text-sm mb-4">Customizable templates in Corel Draw format for quick and professional design creation.</p>
+                                </div>
+                                <button class="btn-primary mt-4 bg-p-navy hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg"
+                                        onclick="openContactModal('CDR Templates')">Inquire</button>
+                            </div>
                         </div>
-                        <button class="btn-primary mt-4 bg-p-navy hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg"
-                                onclick="openContactModal('CDR Templates')">Inquire</button>
                     </div>
                 </div>
                 
-                <div class="card-service bg-white rounded-xl shadow-lg flex flex-col overflow-hidden">
-                    <img src="https://placehold.co/500x300/7dd3fc/071952?text=Custom+Invoices" alt="Bill Book Printing" class="w-full h-40 object-cover">
-                    <div class="p-6 flex flex-col justify-between flex-grow">
-                        <div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Bill Books</h4>
-                            <p class="text-gray-600 text-sm mb-4">Professional printing for custom invoice books, receipt books, and ledgers for business operations.</p>
+                <div class="card-service rounded-xl shadow-lg">
+                    <div class="card-inner">
+                        <div class="card-front bg-white">
+                            <img src="https://placehold.co/500x300/7dd3fc/071952?text=Custom+Invoices" alt="Bill Book Printing" class="w-full h-40 object-cover rounded-t-xl">
+                            <div class="p-6 flex flex-col justify-between flex-grow">
+                                <div>
+                                    <h4 class="text-xl font-semibold text-p-dark-grey mb-3">Bill Books</h4>
+                                    <p class="text-gray-600 text-sm mb-4">Professional printing for custom invoice books, receipt books, and ledgers for business operations.</p>
+                                </div>
+                                <button class="btn-primary mt-4 bg-p-navy hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg"
+                                    onclick="openContactModal('Bill Books')">Inquire</button>
+                            </div>
                         </div>
-                        <button class="btn-primary mt-4 bg-p-navy hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg"
-                            onclick="openContactModal('Bill Books')">Inquire</button>
                     </div>
                 </div>
 
-                <div class="card-service bg-white rounded-xl shadow-lg flex flex-col overflow-hidden">
-                    <img src="https://placehold.co/500x300/bae6fd/071952?text=Flyers+%26+Handbills" alt="Handbills and Flyers Printing" class="w-full h-40 object-cover">
-                    <div class="p-6 flex flex-col justify-between flex-grow">
-                        <div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Handbills & Flyers</h4>
-                            <p class="text-gray-600 text-sm mb-4">Eye-catching design and quick turnaround printing for promotional handbills and flyers.</p>
+                <div class="card-service rounded-xl shadow-lg">
+                    <div class="card-inner">
+                        <div class="card-front bg-white">
+                            <img src="https://placehold.co/500x300/bae6fd/071952?text=Flyers+%26+Handbills" alt="Handbills and Flyers Printing" class="w-full h-40 object-cover rounded-t-xl">
+                            <div class="p-6 flex flex-col justify-between flex-grow">
+                                <div>
+                                    <h4 class="text-xl font-semibold text-p-dark-grey mb-3">Handbills & Flyers</h4>
+                                    <p class="text-gray-600 text-sm mb-4">Eye-catching design and quick turnaround printing for promotional handbills and flyers.</p>
+                                </div>
+                                <button class="btn-primary mt-4 bg-p-navy hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg"
+                                        onclick="openContactModal('Handbills / Flyers')">Inquire</button>
+                            </div>
                         </div>
-                        <button class="btn-primary mt-4 bg-p-navy hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg"
-                                onclick="openContactModal('Handbills / Flyers')">Inquire</button>
                     </div>
                 </div>
 
-                <div class="card-service bg-white rounded-xl shadow-lg flex flex-col overflow-hidden">
-                    <img src="https://placehold.co/500x300/a78bfa/071952?text=Elegant+Invitations" alt="Wedding Cards & Invitations" class="w-full h-40 object-cover">
-                    <div class="p-6 flex flex-col justify-between flex-grow">
-                        <div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Wedding Cards & Invitations</h4>
-                            <p class="text-gray-600 text-sm mb-4">Elegant and personalized invitations, wedding cards, and stationery for special occasions.</p>
+                <div class="card-service rounded-xl shadow-lg">
+                    <div class="card-inner">
+                        <div class="card-front bg-white">
+                            <img src="https://placehold.co/500x300/a78bfa/071952?text=Elegant+Invitations" alt="Wedding Cards & Invitations" class="w-full h-40 object-cover rounded-t-xl">
+                            <div class="p-6 flex flex-col justify-between flex-grow">
+                                <div>
+                                    <h4 class="text-xl font-semibold text-p-dark-grey mb-3">Wedding Cards & Invitations</h4>
+                                    <p class="text-gray-600 text-sm mb-4">Elegant and personalized invitations, wedding cards, and stationery for special occasions.</p>
+                                </div>
+                                <button class="btn-primary mt-4 bg-p-navy hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg"
+                                        onclick="openContactModal('Wedding Cards')">Inquire</button>
+                            </div>
                         </div>
-                        <button class="btn-primary mt-4 bg-p-navy hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg"
-                                onclick="openContactModal('Wedding Cards')">Inquire</button>
                     </div>
                 </div>
 
-                <div class="card-service bg-white rounded-xl shadow-lg flex flex-col overflow-hidden">
-                    <img src="https://placehold.co/500x300/c4b5fd/071952?text=Product+Brochures" alt="Brochures and Catalogs Printing" class="w-full h-40 object-cover">
-                    <div class="p-6 flex flex-col justify-between flex-grow">
-                        <div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Brochures & Catalogs</h4>
-                            <p class="text-gray-600 text-sm mb-4">Multi-page designs and professional printing for detailed business brochures and product catalogs.</p>
+                <div class="card-service rounded-xl shadow-lg">
+                    <div class="card-inner">
+                        <div class="card-front bg-white">
+                            <img src="https://placehold.co/500x300/c4b5fd/071952?text=Product+Brochures" alt="Brochures and Catalogs Printing" class="w-full h-40 object-cover rounded-t-xl">
+                            <div class="p-6 flex flex-col justify-between flex-grow">
+                                <div>
+                                    <h4 class="text-xl font-semibold text-p-dark-grey mb-3">Brochures & Catalogs</h4>
+                                    <p class="text-gray-600 text-sm mb-4">Multi-page designs and professional printing for detailed business brochures and product catalogs.</p>
+                                </div>
+                                <button class="btn-primary mt-4 bg-p-navy hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg"
+                                        onclick="openContactModal('Brochures')">Inquire</button>
+                            </div>
                         </div>
-                        <button class="btn-primary mt-4 bg-p-navy hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg"
-                                onclick="openContactModal('Brochures')">Inquire</button>
                     </div>
                 </div>
 
-                <div class="card-service bg-white rounded-xl shadow-lg flex flex-col overflow-hidden">
-                    <img src="https://placehold.co/500x300/ddd6fe/071952?text=Apparel+Printing" alt="T-Shirt Design and Printing" class="w-full h-40 object-cover">
-                    <div class="p-6 flex flex-col justify-between flex-grow">
-                        <div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-3">T-Shirt Design & Printing</h4>
-                            <p class="text-gray-600 text-sm mb-4">Custom artwork and high-quality printing for apparel and merchandising.</p>
+                <div class="card-service rounded-xl shadow-lg">
+                    <div class="card-inner">
+                        <div class="card-front bg-white">
+                            <img src="https://placehold.co/500x300/ddd6fe/071952?text=Apparel+Printing" alt="T-Shirt Design and Printing" class="w-full h-40 object-cover rounded-t-xl">
+                            <div class="p-6 flex flex-col justify-between flex-grow">
+                                <div>
+                                    <h4 class="text-xl font-semibold text-p-dark-grey mb-3">T-Shirt Design & Printing</h4>
+                                    <p class="text-gray-600 text-sm mb-4">Custom artwork and high-quality printing for apparel and merchandising.</p>
+                                </div>
+                                <button class="btn-primary mt-4 bg-p-navy hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg"
+                                        onclick="openContactModal('T-Shirt Design')">Inquire</button>
+                            </div>
                         </div>
-                        <button class="btn-primary mt-4 bg-p-navy hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg"
-                                onclick="openContactModal('T-Shirt Design')">Inquire</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="gallery" class="py-16 bg-gray-50 border-t border-p-navy/10">
+    <section id="gallery" class="py-16 bg-p-beige border-t border-p-navy/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-4xl font-bold text-center text-gray-800 mb-4">Our Portfolio</h3>
-            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            <h3 class="text-4xl font-bold text-center text-p-dark-grey mb-4">Our Portfolio</h3>
+            <p class="text-center text-p-dark-grey mb-12 max-w-2xl mx-auto">
                 A selection of our latest work showcasing quality and creativity in design and print.
             </p>
 
@@ -294,7 +410,7 @@
 
     <section id="faq" class="py-16 bg-white border-t border-p-navy/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-4xl font-bold text-center text-gray-800 mb-12">Frequently Asked Questions</h3>
+            <h3 class="text-4xl font-bold text-center text-p-dark-grey mb-12">Frequently Asked Questions</h3>
 
             <div class="max-w-3xl mx-auto space-y-4">
                 
@@ -304,7 +420,7 @@
                         <svg class="w-5 h-5 text-p-navy transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="faq-answer p-5 pt-0 pb-0 bg-white">
-                        <p class="text-gray-700">The turnaround time depends entirely on the service and quantity. **Standard business card** orders usually take **3-5 business days** after design approval. For items like **wedding cards or large-volume flyers**, it may take longer. Please discuss your deadline with our team when you submit your inquiry for an accurate estimate.</p>
+                        <p class="text-p-dark-grey">The turnaround time depends entirely on the service and quantity. **Standard business card** orders usually take **3-5 business days** after design approval. For items like **wedding cards or large-volume flyers**, it may take longer. Please discuss your deadline with our team when you submit your inquiry for an accurate estimate.</p>
                     </div>
                 </div>
 
@@ -314,7 +430,7 @@
                         <svg class="w-5 h-5 text-p-navy transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="faq-answer p-5 pt-0 pb-0 bg-white">
-                        <p class="text-gray-700">Absolutely! **Custom design** is our specialty. Our services include dedicated **Graphic Design** and **Logo Design**. Whether you need a brand-new logo or a unique layout for a wedding invitation, our team will work with you to create a design that perfectly matches your vision and requirements.</p>
+                        <p class="text-p-dark-grey">Absolutely! **Custom design** is our specialty. Our services include dedicated **Graphic Design** and **Logo Design**. Whether you need a brand-new logo or a unique layout for a wedding invitation, our team will work with you to create a design that perfectly matches your vision and requirements.</p>
                     </div>
                 </div>
 
@@ -324,17 +440,17 @@
                         <svg class="w-5 h-5 text-p-navy transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="faq-answer p-5 pt-0 pb-0 bg-white">
-                        <p class="text-gray-700">While our main office is in Chatta Bazar, **Hyderabad**, we are happy to arrange delivery for our printing services to locations **outside of Hyderabad**. Shipping charges will apply based on the delivery location and the size/weight of the order. Please specify your delivery address in your inquiry for an accurate shipping quote.</p>
+                        <p class="text-p-dark-grey">While our main office is in Chatta Bazar, **Hyderabad**, we are happy to arrange delivery for our printing services to locations **outside of Hyderabad**. Shipping charges will apply based on the delivery location and the size/weight of the order. Please specify your delivery address in your inquiry for an accurate shipping quote.</p>
                     </div>
                 </div>
 
             </div>
         </div>
     </section>
-    <section id="reviews" class="py-16 bg-white border-t border-gray-200">
+    <section id="reviews" class="py-16 bg-p-beige border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-4xl font-bold text-center text-gray-800 mb-4">Client Testimonials</h3>
-            <p class="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
+            <h3 class="text-4xl font-bold text-center text-p-dark-grey mb-4">Client Testimonials</h3>
+            <p class="text-center text-p-dark-grey mb-10 max-w-2xl mx-auto">
                 Hear from our valued clients and share your own experience.
             </p>
 
@@ -346,28 +462,28 @@
             </div>
             
             <div id="reviews-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-6 rounded-xl shadow-md border-t-4 border-p-gold">
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-p-gold">
                     <div class="flex items-center mb-3">
                         <span class="text-xl text-p-gold">★★★★★</span>
                         <span class="text-gray-500 ml-3 text-sm">by **Priyanka S.**</span>
                     </div>
-                    <p class="text-gray-700 italic mb-2">"Outstanding quality on the business cards. The design team was excellent and the print was perfect."</p>
+                    <p class="text-p-dark-grey italic mb-2">"Outstanding quality on the business cards. The design team was excellent and the print was perfect."</p>
                     <p class="text-xs text-gray-400">Review for: Business Cards</p>
                 </div>
-                <div class="bg-gray-50 p-6 rounded-xl shadow-md border-t-4 border-p-gold">
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-p-gold">
                     <div class="flex items-center mb-3">
                         <span class="text-xl text-p-gold">★★★★☆</span>
                         <span class="text-gray-500 ml-3 text-sm">by **Anil R.**</span>
                     </div>
-                    <p class="text-gray-700 italic mb-2">"Quick turnaround on the flyer order. Good job! Will order handbills again."</p>
+                    <p class="text-p-dark-grey italic mb-2">"Quick turnaround on the flyer order. Good job! Will order handbills again."</p>
                     <p class="text-xs text-gray-400">Review for: Handbills & Flyers</p>
                 </div>
-                <div class="bg-gray-50 p-6 rounded-xl shadow-md border-t-4 border-p-gold">
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-p-gold">
                     <div class="flex items-center mb-3">
                         <span class="text-xl text-p-gold">★★★★★</span>
                         <span class="text-gray-500 ml-3 text-sm">by **Guest**</span>
                     </div>
-                    <p class="text-gray-700 italic mb-2">"The wedding invitations were beautiful and elegant, just as we wanted. Highly recommend!"</p>
+                    <p class="text-p-dark-grey italic mb-2">"The wedding invitations were beautiful and elegant, just as we wanted. Highly recommend!"</p>
                     <p class="text-xs text-gray-400">Review for: Wedding Cards</p>
                 </div>
                 </div>
@@ -379,8 +495,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="contact-form-trigger" class="bg-[#000080] py-10 border-t border-p-gold/50">
+    <footer id="contact-form-trigger" class="bg-p-dark-grey py-10 border-t border-p-gold/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:flex md:justify-between md:items-center">
             
             <div class="mb-6 md:mb-0">
@@ -388,34 +503,35 @@
                 <p class="text-gray-300 text-sm">Design & Print Experts in Chatta Bazar</p>
             </div>
 
-            <div class="text-[#FFD700] text-sm mb-6 md:mb-0">
-                <h4 class="text-2xl font-bold text-white mb-2">Our Location:</h5>
-                <p>No. 22-7-245, opp. Deccan Stationery,</p>
-                <p>Main Road, Chatta Bazar-500002</p>
+            <div class="text-white text-sm mb-6 md:mb-0 flex flex-col items-center">
+                <h4 class="text-2xl font-bold text-white mb-2">Our Location</h4>
+                <img src="Location.png" alt="Location QR Code" class="w-28 h-28 mb-3 border-4 border-p-gold p-1" />
+                <a href="https://maps.app.goo.gl/GAZGxxLjKoCCN2h47" target="_blank"
+                    class="btn-primary bg-p-gold hover:bg-yellow-500 text-p-navy font-semibold py-2 px-4 rounded-full text-sm shadow-md transition-all duration-300">
+                     Reach Us on Map 🗺️
+                </a>
             </div>
 
             <div>
                 <a href="#contact-modal" onclick="openContactModal('General Inquiry')"
-   class="btn-primary bg-[#FFD700] hover:bg-yellow-500 text-white font-medium py-2 px-6 rounded-full text-sm shadow-md">
-    Start Your Project
-</a>
-
-
+                   class="btn-primary bg-p-gold hover:bg-yellow-500 text-white font-medium py-2 px-6 rounded-full text-sm shadow-md">
+                    Start Your Project
+                </a>
             </div>
         </div>
-        <div class="text-center text-[#FFD700] text-xs mt-8 border-t border-[#FFD700] pt-4">
+        <div class="text-center text-p-gold text-xs mt-8 border-t border-p-gold/50 pt-4">
             &copy; 2025 Perfect Cards & Printers. All Rights Reserved.
         </div>
     </footer>
 
-    
+
     <div id="contact-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center modal-backdrop transition-opacity duration-300">
         <div class="bg-white p-8 rounded-xl shadow-2xl max-w-lg w-full m-4 border-t-8 border-p-navy transform scale-95 transition-transform duration-300"
              id="modal-content">
             
-            <h4 class="text-3xl font-bold text-gray-800 mb-6">Inquire About <span id="service-title" class="text-p-navy">...</span></h4>
+            <h4 class="text-3xl font-bold text-p-dark-grey mb-6">Inquire About <span id="service-title" class="text-p-navy">...</span></h4>
             
-            <button onclick="closeContactModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition">
+            <button onclick="closeContactModal()" class="absolute top-4 right-4 text-gray-400 hover:text-p-dark-grey transition">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
 
@@ -428,26 +544,26 @@
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Full Name</label>
                     <input type="text" id="name" name="Name" required
-                           class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-800 focus:ring-p-navy focus:border-p-navy">
+                           class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-p-dark-grey focus:ring-p-navy focus:border-p-navy">
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
                         <input type="email" id="email" name="Email" required
-                               class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-800 focus:ring-p-navy focus:border-p-navy">
+                               class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-p-dark-grey focus:ring-p-navy focus:border-p-navy">
                     </div>
                     <div>
                         <label for="number" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
                         <input type="tel" id="number" name="Number" 
-                               class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-800 focus:ring-p-navy focus:border-p-navy">
+                               class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-p-dark-grey focus:ring-p-navy focus:border-p-navy">
                     </div>
                 </div>
 
                 <div>
                     <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Project Details / Message</label>
                     <textarea id="message" name="Message" rows="4" required
-                              class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-800 focus:ring-p-navy focus:border-p-navy"></textarea>
+                              class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-p-dark-grey focus:ring-p-navy focus:border-p-navy"></textarea>
                 </div>
 
                 <button type="submit" id="contact-submit-button"
@@ -462,9 +578,9 @@
         <div class="bg-white p-8 rounded-xl shadow-2xl max-w-lg w-full m-4 border-t-8 border-p-gold transform scale-95 transition-transform duration-300"
              id="review-modal-content">
             
-            <h4 class="text-3xl font-bold text-gray-800 mb-6">Submit a Review ⭐️</h4>
+            <h4 class="text-3xl font-bold text-p-dark-grey mb-6">Submit a Review ⭐️</h4>
             
-            <button onclick="closeReviewModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition">
+            <button onclick="closeReviewModal()" class="absolute top-4 right-4 text-gray-400 hover:text-p-dark-grey transition">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
 
@@ -475,13 +591,13 @@
                 <div>
                     <label for="review-name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
                     <input type="text" id="review-name" name="Name" required
-                           class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-800 focus:ring-p-gold focus:border-p-gold">
+                           class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-p-dark-grey focus:ring-p-gold focus:border-p-gold">
                 </div>
 
                 <div>
                     <label for="review-email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
                     <input type="email" id="review-email" name="Email" required
-                           class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-800 focus:ring-p-gold focus:border-p-gold">
+                           class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-p-dark-grey focus:ring-p-gold focus:border-p-gold">
                 </div>
                 
                 <div>
@@ -498,7 +614,7 @@
                 <div>
                     <label for="review-message" class="block text-sm font-medium text-gray-700 mb-1">Your Feedback</label>
                     <textarea id="review-message" name="Message" rows="4" required
-                              class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-800 focus:ring-p-gold focus:border-p-gold"></textarea>
+                              class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg text-p-dark-grey focus:ring-p-gold focus:border-p-gold"></textarea>
                 </div>
 
                 <button type="submit" id="review-submit-button"
@@ -515,7 +631,7 @@
         // NOTE: REPLACE THESE WITH YOUR DEPLOYED GOOGLE APPS SCRIPT URLs
         // *******************************************************************
         // 1. For Contact Inquiries
-        const APP_SCRIPT_URL_CONTACT = 'https://script.google.com/macros/s/AKfycbxVYasq9D8NskNIt95Eb3egGMwBObCFGTjizwh9qoU_3XE_O44zQL9A5Yb8pf118-wzOg/exec'; 
+        const APP_SCRIPT_URL_CONTACT = 'https://script.google.com/macros/s/AKfycbxXxGLAL0Nr-mQtAk_VZpQ7gIOvl_ml63p1eO5ASi5XYDNSSrEaSQJaltByALXZDiRq/exec'; 
         // 2. For Review Submissions & Retrieval
         const APP_SCRIPT_URL_REVIEWS = 'https://script.google.com/macros/s/AKfycbwEl1AxtS4L1leY64LqpBX9RvYJ7ux6UiQ4CY_P-cbGsStd1dltuDtjMTkx5XjVvMOx/exec'; 
         // *******************************************************************
@@ -588,7 +704,7 @@
             e.preventDefault();
             
             // Check for placeholder URL
-            const isPlaceholderUrl = APP_SCRIPT_URL_CONTACT.includes('https://script.google.com/macros/s/AKfycbxVYasq9D8NskNIt95Eb3egGMwBObCFGTjizwh9qoU_3XE_O44zQL9A5Yb8pf118-wzOg/exec');
+            const isPlaceholderUrl = APP_SCRIPT_URL_CONTACT.includes('https://script.google.com/macros/s/AKfycbxXxGLAL0Nr-mQtAk_VZpQ7gIOvl_ml63p1eO5ASi5XYDNSSrEaSQJaltByALXZDiRq/exec');
             
             contactSubmitButton.disabled = true;
             contactSubmitButton.textContent = 'Sending...';
@@ -758,12 +874,12 @@
                 // Ensure Rating is an integer before using it
                 const rating = parseInt(review.Rating) || 0;
                 const reviewHtml = `
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-md border-t-4 border-p-gold">
+                    <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-p-gold">
                         <div class="flex items-center mb-3">
                             ${createStarString(rating)}
                             <span class="text-gray-500 ml-3 text-sm">by **${review.Name}**</span>
                         </div>
-                        <p class="text-gray-700 italic mb-2">"${review.Message}"</p>
+                        <p class="text-p-dark-grey italic mb-2">"${review.Message}"</p>
                         ${serviceText}
                     </div>
                 `;
