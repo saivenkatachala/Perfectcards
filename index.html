@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="icon" type="image/png" href="logo.png">
     <title>Perfect Cards & Printers - Services</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%234f46e5' rx='15'/><text x='50' y='75' font-size='60' fill='%23ffffff' font-family='sans-serif' text-anchor='middle'>P</text></svg>">
-    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
         
@@ -20,6 +19,7 @@
             --vibrant-2: #10b981;
             --vibrant-3: #8b5cf6;
             --vibrant-4: #f97316;
+            --text-color: #1f2937; /* Used for social media icon color */
         }
         
         body {
@@ -202,7 +202,7 @@
         
         .slide-indicators {
             position: absolute;
-            bottom: 20px;
+            bottom: 22px;
             left: 0;
             right: 0;
             display: flex;
@@ -234,11 +234,6 @@
             background: linear-gradient(135deg, #1f2937, #374151);
         }
         
-        /* Modal Backdrop */
-        .modal-backdrop {
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .card-3d:hover {
@@ -260,11 +255,53 @@
                 font-size: 1rem;
             }
         }
+
+        /* --- Custom Social Media Styles (Enhanced) --- */
+        .social-media a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--primary); /* Border color based on primary */
+            border-radius: 50%;
+            font-size: 18px;
+            color: var(--primary); /* Icon color based on primary */
+            margin-right: 12px;
+            transition: all 0.4s ease-in-out;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-media a:hover {
+            background: var(--primary); /* Solid primary color on hover */
+            color: #ffffff; /* White icon on hover */
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 15px var(--primary-dark), 0 0 25px var(--vibrant-3); /* Multi-color shadow on hover */
+        }
+        
+        /* Specific hover colors for brand feel */
+        .social-media a[aria-label="WhatsApp"]:hover {
+            background-color: #25d366;
+            border-color: #25d366;
+        }
+        .social-media a[aria-label="Instagram"]:hover {
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+            border-color: #dc2743;
+        }
+        .social-media a[aria-label="Facebook"]:hover {
+            background-color: #1877f2;
+            border-color: #1877f2;
+        }
+        .social-media a[aria-label="Twitter/X"]:hover {
+            background-color: #000000;
+            border-color: #000000;
+        }
     </style>
 </head>
 <body class="min-h-screen">
 
-    <!-- Header & Navigation -->
     <header class="sticky top-0 z-50 backdrop-blur-sm border-b border-indigo-200 colorful-header">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-extrabold text-white text-3d">Perfect Cards & Printers</h1>
@@ -276,11 +313,9 @@
         </div>
     </header>
 
-    <!-- Hero Section with Slideshow -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-28 text-center rounded-xl mt-4 shadow-xl colorful-bg" style="height: 500px;">
         <div class="slideshow-container">
-            <!-- Slide 1 -->
-            <div class="slide active" style="background: linear-gradient(135deg, rgba(176, 237, 137, 0.8), rgba(123, 226, 249, 0.8)), url('https://images.unsplash.com/photo-1587334985603-79eef56e8395?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'); background-size: cover;">
+            <div class="slide active" style="background: linear-gradient(135deg, rgba(165, 217, 239, 0.8), rgba(139, 92, 246, 0.8)), url('https://unsplash.com/photos/team-of-creative-designers-working-with-tablet-for-new-project-in-a-design-studio-pZ46MU2At14'); background-size: cover;">
                 <h2 class="text-5xl md:text-7xl font-extrabold text-white mb-4 drop-shadow-2xl text-3d leading-tight">
                     Design. Print. Deliver.
                 </h2>
@@ -293,7 +328,6 @@
                 </button>
             </div>
             
-            <!-- Slide 2 -->
             <div class="slide" style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.8), rgba(245, 158, 11, 0.8)), url('https://images.unsplash.com/photo-1541140532154-b024d705b90a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'); background-size: cover;">
                 <h2 class="text-5xl md:text-7xl font-extrabold text-white mb-4 drop-shadow-2xl text-3d leading-tight">
                     Creative Designs
@@ -307,7 +341,6 @@
                 </button>
             </div>
             
-            <!-- Slide 3 -->
             <div class="slide" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.8), rgba(59, 130, 246, 0.8)), url('https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'); background-size: cover;">
                 <h2 class="text-5xl md:text-7xl font-extrabold text-white mb-4 drop-shadow-2xl text-3d leading-tight">
                     Quality Printing
@@ -321,7 +354,6 @@
                 </button>
             </div>
             
-            <!-- Slide 4 -->
             <div class="slide" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.8), rgba(236, 72, 153, 0.8)), url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'); background-size: cover;">
                 <h2 class="text-5xl md:text-7xl font-extrabold text-white mb-4 drop-shadow-2xl text-3d leading-tight">
                     Fast Delivery
@@ -335,7 +367,6 @@
                 </button>
             </div>
             
-            <!-- Slide Indicators -->
             <div class="slide-indicators">
                 <div class="indicator active" data-slide="0"></div>
                 <div class="indicator" data-slide="1"></div>
@@ -345,14 +376,12 @@
         </div>
     </section>
 
-    <!-- Services Section with 3D Cards -->
     <section id="services" class="py-16 colorful-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 class="text-4xl font-bold text-center text-gray-800 mb-16 text-3d">Our Core Services</h3>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
 
-                <!-- Service Card: Graphic Design -->
                 <div class="card-3d bg-white rounded-xl shadow-lg flex flex-col overflow-hidden print-animation service-card-1">
                     <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Graphic Design Service" class="w-full h-40 object-cover">
                     <div class="p-6 flex flex-col justify-between flex-grow card-content">
@@ -365,7 +394,6 @@
                     </div>
                 </div>
 
-                <!-- Service Card: Business Cards -->
                 <div class="card-3d bg-white rounded-xl shadow-lg flex flex-col overflow-hidden print-animation service-card-2">
                     <img src="https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Business Cards Printing" class="w-full h-40 object-cover">
                     <div class="p-6 flex flex-col justify-between flex-grow card-content">
@@ -378,7 +406,6 @@
                     </div>
                 </div>
 
-                <!-- Service Card: Logo Design -->
                 <div class="card-3d bg-white rounded-xl shadow-lg flex flex-col overflow-hidden print-animation service-card-3">
                     <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Logo Design Service" class="w-full h-40 object-cover">
                     <div class="p-6 flex flex-col justify-between flex-grow card-content">
@@ -391,7 +418,6 @@
                     </div>
                 </div>
 
-                <!-- Service Card: CDR Templates -->
                 <div class="card-3d bg-white rounded-xl shadow-lg flex flex-col overflow-hidden print-animation service-card-4">
                     <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Corel Draw Templates" class="w-full h-40 object-cover">
                     <div class="p-6 flex flex-col justify-between flex-grow card-content">
@@ -404,7 +430,6 @@
                     </div>
                 </div>
                 
-                <!-- Service Card: Bill Books -->
                 <div class="card-3d bg-white rounded-xl shadow-lg flex flex-col overflow-hidden print-animation service-card-5">
                     <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Bill Book Printing" class="w-full h-40 object-cover">
                     <div class="p-6 flex flex-col justify-between flex-grow card-content">
@@ -417,9 +442,8 @@
                     </div>
                 </div>
 
-                <!-- Service Card: Handbills / Flyers -->
                 <div class="card-3d bg-white rounded-xl shadow-lg flex flex-col overflow-hidden print-animation service-card-6">
-                    <img src="https://images.unsplash.com/photo-1557804483-ef6c5ba6c27c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Handbills and Flyers Printing" class="w-full h-40 object-cover">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Handbills and Flyers Printing" class="w-full h-40 object-cover">
                     <div class="p-6 flex flex-col justify-between flex-grow card-content">
                         <div>
                             <h4 class="text-xl font-semibold text-gray-800 mb-3">Handbills & Flyers</h4>
@@ -430,7 +454,6 @@
                     </div>
                 </div>
 
-                <!-- Service Card: Wedding Cards -->
                 <div class="card-3d bg-white rounded-xl shadow-lg flex flex-col overflow-hidden print-animation service-card-1">
                     <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Wedding Cards & Invitations" class="w-full h-40 object-cover">
                     <div class="p-6 flex flex-col justify-between flex-grow card-content">
@@ -443,7 +466,6 @@
                     </div>
                 </div>
 
-                <!-- Service Card: Brochures -->
                 <div class="card-3d bg-white rounded-xl shadow-lg flex flex-col overflow-hidden print-animation service-card-2">
                     <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Brochures and Catalogs Printing" class="w-full h-40 object-cover">
                     <div class="p-6 flex flex-col justify-between flex-grow card-content">
@@ -459,7 +481,6 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
     <section id="gallery" class="py-16 colorful-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 class="text-4xl font-bold text-center text-gray-800 mb-4 text-3d">Our Portfolio</h3>
@@ -467,37 +488,28 @@
                 A selection of our latest work showcasing quality and creativity in design and print.
             </p>
 
-            <!-- Gallery Grid -->
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Business Card -->
                 <div class="card-3d overflow-hidden rounded-lg shadow-xl transition duration-300">
                     <img src="https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sample Business Card" class="w-full h-full object-cover">
                 </div>
-                <!-- Brochure -->
                 <div class="card-3d overflow-hidden rounded-lg shadow-xl transition duration-300">
                     <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sample Brochure" class="w-full h-full object-cover">
                 </div>
-                <!-- T-Shirt Print -->
                 <div class="card-3d overflow-hidden rounded-lg shadow-xl transition duration-300">
                     <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sample T-Shirt Print" class="w-full h-full object-cover">
                 </div>
-                <!-- Handbill/Flyer -->
                 <div class="card-3d overflow-hidden rounded-lg shadow-xl transition duration-300">
-                    <img src="https://images.unsplash.com/photo-1557804483-ef6c5ba6c27c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sample Handbill" class="w-full h-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sample Handbill" class="w-full h-full object-cover">
                 </div>
-                <!-- Wedding Card -->
                 <div class="card-3d overflow-hidden rounded-lg shadow-xl transition duration-300">
                     <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sample Wedding Card" class="w-full h-full object-cover">
                 </div>
-                <!-- Logo Mockup -->
                 <div class="card-3d overflow-hidden rounded-lg shadow-xl transition duration-300">
                     <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sample Logo Design" class="w-full h-full object-cover">
                 </div>
-                <!-- Bill Book -->
                 <div class="card-3d overflow-hidden rounded-lg shadow-xl transition duration-300">
                     <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sample Bill Book" class="w-full h-full object-cover">
                 </div>
-                <!-- CDR Template -->
                 <div class="card-3d overflow-hidden rounded-lg shadow-xl transition duration-300">
                     <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sample CDR Template" class="w-full h-full object-cover">
                 </div>
@@ -505,20 +517,27 @@
         </div>
     </section>
 
-    <!-- Footer Section with Address -->
     <footer id="contact-form-trigger" class="py-10 colorful-footer">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:flex md:justify-between md:items-center">
             
-            <div class="mb-6 md:mb-0">
+            <div class="mb-6 md:mb-0 md:text-left">
                 <h4 class="text-xl font-bold text-indigo-300 mb-2">Perfect Cards & Printers</h4>
-                <p class="text-gray-400 text-sm">Design & Print Experts in Chatta Bazar</p>
+                <p class="text-gray-400 text-sm mb-4">Design & Print Experts in Chatta Bazar</p>
+                
+                <div class="social-media flex justify-center md:justify-start">
+                    <a href="https://wa.me/9849028292" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/perfectcardsandprinters?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <!-- <a href="YOUR_FACEBOOK_LINK" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="YOUR_TWITTER_LINK" target="_blank" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a> -->
+                </div>
             </div>
 
-            <div class="text-gray-400 text-sm mb-6 md:mb-0">
-                <h5 class="font-semibold text-white mb-1">Our Location:</h5>
+            <div class="text-gray-400 text-sm mb-6 md:mb-0 md:text-right">
+                <h4 class="text-xl font-bold text-indigo-300 mb-2">Our Location</h4>
                 <p>No. 22-7-245, opp. Deccan Stationery,</p>
                 <p>Main Road, Chatta Bazar-500002</p>
             </div>
+             
 
             <div>
                 <a href="#contact-modal" onclick="openContactModal('General Inquiry')"
@@ -532,24 +551,20 @@
         </div>
     </footer>
 
-    <!-- Contact Modal (Hidden by default) -->
-    <div id="contact-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center modal-backdrop transition-opacity duration-300">
-        <div class="bg-white p-8 rounded-xl shadow-2xl max-w-lg w-full m-4 border-t-8 border-indigo-600 transform scale-95 transition-transform duration-300"
+    <div id="contact-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/50 transition-opacity duration-300">
+        <div class="bg-white p-8 rounded-xl shadow-2xl max-w-lg w-full m-4 border-t-4 border-indigo-600 transform scale-95 transition-transform duration-300"
              id="modal-content">
             
             <h4 class="text-3xl font-bold text-gray-800 mb-6">Inquire About <span id="service-title" class="text-indigo-600">...</span></h4>
             
-            <!-- Close Button -->
             <button onclick="closeContactModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
 
-            <!-- Contact Form -->
             <form id="contact-form" class="space-y-4">
                 
                 <input type="hidden" id="service-source-input" name="ServiceSource">
 
-                <!-- Status Message Box (for success/error) -->
                 <div id="status-message" class="hidden p-3 rounded-lg text-sm font-medium"></div>
 
                 <div>
@@ -586,17 +601,6 @@
     </div>
 
     <script>
-        // NOTE: REPLACE THIS WITH YOUR DEPLOYED GOOGLE APPS SCRIPT URL
-        const APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxuFXY0dmDP7dfPMp2_TyWSJ_-QLA99djLwH3vWkQs6_KxC4yeSC0qb8tzaFDz5isKaLg/exec'; 
-
-        const modal = document.getElementById('contact-modal');
-        const modalContent = document.getElementById('modal-content');
-        const serviceTitle = document.getElementById('service-title');
-        const serviceSourceInput = document.getElementById('service-source-input');
-        const form = document.getElementById('contact-form');
-        const statusMessage = document.getElementById('status-message');
-        const submitButton = document.getElementById('submit-button');
-
         // Slideshow functionality
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
@@ -635,6 +639,15 @@
                 showSlide(index);
             });
         });
+
+        // Modal functionality
+        const modal = document.getElementById('contact-modal');
+        const modalContent = document.getElementById('modal-content');
+        const serviceTitle = document.getElementById('service-title');
+        const serviceSourceInput = document.getElementById('service-source-input');
+        const form = document.getElementById('contact-form');
+        const statusMessage = document.getElementById('status-message');
+        const submitButton = document.getElementById('submit-button');
 
         function openContactModal(service) {
             serviceTitle.textContent = service;
@@ -685,59 +698,6 @@
             }
         });
 
-
-        // FORM SUBMISSION LOGIC (Your original backend code)
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            if (APP_SCRIPT_URL === 'YOUR_DEPLOYED_WEB_APP_URL_HERE') {
-                showStatusMessage(false, 'Error: Please replace APP_SCRIPT_URL with your deployed Google Apps Script URL.');
-                return;
-            }
-
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-            hideStatusMessage();
-
-            const formData = new FormData(form);
-            const params = new URLSearchParams(formData).toString();
-            
-            try {
-                // Use fetch for a clean AJAX submission
-                const response = await fetch(`${APP_SCRIPT_URL}?${params}`, {
-                    method: 'POST',
-                    mode: 'cors'
-                });
-
-                const result = await response.json();
-
-                if (result.status === 'success') {
-                    showStatusMessage(true, 'Inquiry sent successfully! We will contact you soon.');
-                    // Optionally, clear the form after successful submission
-                    form.reset(); 
-                    submitButton.textContent = 'Sent!';
-                } else {
-                    showStatusMessage(false, result.message || 'Submission failed on the server side.');
-                    submitButton.textContent = 'Try Again';
-                    submitButton.disabled = false;
-                }
-
-            } catch (error) {
-                console.error('Network or Parse Error:', error);
-                showStatusMessage(true, 'Inquiry sent successfully! We will contact you soon.');
-                    // Optionally, clear the form after successful submission
-                    form.reset(); 
-                    submitButton.textContent = 'Sent!';
-            }
-        });
-
-        // Add keyboard accessibility for modal (Escape key)
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                closeContactModal();
-            }
-        });
-        
         // Add scroll-triggered animations
         document.addEventListener('DOMContentLoaded', function() {
             // Add print animation to service cards on scroll
@@ -758,6 +718,13 @@
             document.querySelectorAll('.card-3d').forEach(card => {
                 observer.observe(card);
             });
+        });
+
+        // Add keyboard accessibility for modal (Escape key)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeContactModal();
+            }
         });
     </script>
 </body>
