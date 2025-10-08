@@ -19,6 +19,7 @@
                 }
             }
         }
+  
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -433,6 +434,10 @@
                 min-width: 140px;
             }
         }
+
+
+
+
     </style>
 </head>
 <body class="min-h-screen">
@@ -494,17 +499,27 @@
 onclick="openContactModal('General Inquiry')">
     Get a Quote Today
 </button>
-
-
 </div>
-
-
-
     <section id="services" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 class="text-4xl font-bold text-center mb-4 color-change-text">Our Core Services</h3>
-
+            
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div class="card-service rounded-xl shadow-lg">
+                    <div class="card-inner">
+                        <div class="card-front bg-white">
+                            <img src="Wedding-Invitation-Card.webp" alt="Wedding Cards & Invitations" class="w-full h-40 object-cover rounded-t-xl">
+                            <div class="p-6 flex flex-col justify-between flex-grow">
+                                <div>
+                                    <h4 class="text-2xl font-bold mb-2 glitter-text">Wedding Cards & Custom Invitations</h4>
+                                    <p class="text-gray-600 text-sm mb-4">Elegant and personalized invitations, wedding cards, and stationery for special occasions.</p>
+                                </div>
+                                <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
+                                        onclick="openContactModal('Wedding Cards')">Inquire</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card-service rounded-xl shadow-lg">
                     <div class="card-inner">
                         <div class="card-front bg-white">
@@ -552,9 +567,36 @@ onclick="openContactModal('General Inquiry')">
                         </div>
                     </div>
                 </div>
-
-                
-                
+                <div class="card-service rounded-xl shadow-lg">
+                    <div class="card-inner">
+                        <div class="card-front bg-white">
+                            <img src="logo1.png" alt="Logo Design Service" class="w-full h-40 object-cover rounded-t-xl">
+                            <div class="p-6 flex flex-col justify-between flex-grow">
+                                <div>
+                                    <h4 class="text-2xl font-bold mb-2 glitter-text">Banners</h4>
+                                    <p class="text-gray-600 text-sm mb-4">Crafting unique and impactful logos that define your brand identity.</p>
+                                </div>
+                                <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
+                                        onclick="openContactModal('Banners')">Inquire</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-service rounded-xl shadow-lg">
+                    <div class="card-inner">
+                        <div class="card-front bg-white">
+                            <img src="logo1.png" alt="Logo Design Service" class="w-full h-40 object-cover rounded-t-xl">
+                            <div class="p-6 flex flex-col justify-between flex-grow">
+                                <div>
+                                    <h4 class="text-2xl font-bold mb-2 glitter-text">Vinyl & Posters</h4>
+                                    <p class="text-gray-600 text-sm mb-4">Crafting unique and impactful logos that define your brand identity.</p>
+                                </div>
+                                <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
+                                        onclick="openContactModal('Vinyl & Posters')">Inquire</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card-service rounded-xl shadow-lg">
                     <div class="card-inner">
                         <div class="card-front bg-white">
@@ -565,7 +607,7 @@ onclick="openContactModal('General Inquiry')">
                                     <p class="text-gray-600 text-sm mb-4">Professional printing for custom invoice books, receipt books, and ledgers for business operations.</p>
                                 </div>
                                 <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
-                                    onclick="openContactModal('Bill Books')">Inquire</button>
+                                    onclick="openContactModal('Bill Books & NotePads')">Inquire</button>
                             </div>
                         </div>
                     </div>
@@ -586,23 +628,6 @@ onclick="openContactModal('General Inquiry')">
                         </div>
                     </div>
                 </div>
-
-                <div class="card-service rounded-xl shadow-lg">
-                    <div class="card-inner">
-                        <div class="card-front bg-white">
-                            <img src="Wedding-Invitation-Card.webp" alt="Wedding Cards & Invitations" class="w-full h-40 object-cover rounded-t-xl">
-                            <div class="p-6 flex flex-col justify-between flex-grow">
-                                <div>
-                                    <h4 class="text-2xl font-bold mb-2 glitter-text">Wedding Cards & Invitations</h4>
-                                    <p class="text-gray-600 text-sm mb-4">Elegant and personalized invitations, wedding cards, and stationery for special occasions.</p>
-                                </div>
-                                <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
-                                        onclick="openContactModal('Wedding Cards')">Inquire</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="card-service rounded-xl shadow-lg">
                     <div class="card-inner">
                         <div class="card-front bg-white">
@@ -613,7 +638,7 @@ onclick="openContactModal('General Inquiry')">
                                     <p class="text-gray-600 text-sm mb-4">Multi-page designs and professional printing for detailed business brochures.</p>
                                 </div>
                                 <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
-                                        onclick="openContactModal('Brochures')">Inquire</button>
+                                        onclick="openContactModal('Brochures & Catalogs')">Inquire</button>
                             </div>
                         </div>
                     </div>
@@ -628,7 +653,7 @@ onclick="openContactModal('General Inquiry')">
                                     <p class="text-gray-600 text-sm mb-4" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Creative, high-quality stickers and labels tailored to your brand identity.</p>
                                 </div>
                                 <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
-                                        onclick="openContactModal('Calendar')">Inquire</button>
+                                        onclick="openContactModal('Custom Stickers & Labels')">Inquire</button>
                             </div>
                         </div>
                     </div>
@@ -643,7 +668,7 @@ onclick="openContactModal('General Inquiry')">
                                     <p class="text-gray-600 text-sm mb-4" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">High-quality business ID cards with a perfect blend of design and durability.</p>
                                 </div>
                                 <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
-                                        onclick="openContactModal('Calendar')">Inquire</button>
+                                        onclick="openContactModal('Business ID cards')">Inquire</button>
                             </div>
                         </div>
                     </div>
@@ -779,8 +804,24 @@ onclick="openContactModal('General Inquiry')">
             <p class="text-center text-p-dark-grey mb-12 max-w-2xl mx-auto">
                 A selection of our latest work showcasing quality and creativity in design and print. Click 'View Gallery' to see more.
             </p>
-
+          
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                 <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
+                    <img src="https://placehold.co/500x200/ec4899/ffffff?text=Wedding+Card" alt="Wedding Card Sample" class="w-full h-3/5 object-cover">
+                    <div class="p-3 flex flex-col flex-grow justify-between bg-white">
+                        <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Wedding Cards</h4>
+                        <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
+                                onclick="openGalleryModal('Wedding Cards')">View Gallery</button>
+                    </div>
+                </div>
+                <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
+                    <img src="https://placehold.co/500x200/071952/F7B700?text=Business+Cards" alt="Business Card Sample" class="w-full h-3/5 object-cover">
+                    <div class="p-3 flex flex-col flex-grow justify-between bg-white">
+                        <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Graphic Design & CDR Templates</h4>
+                        <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
+                                onclick="openGalleryModal('GD')">View Gallery</button>
+                    </div>
+                </div>
                 
                 <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
                     <img src="https://placehold.co/500x200/071952/F7B700?text=Business+Cards" alt="Business Card Sample" class="w-full h-3/5 object-cover">
@@ -817,13 +858,29 @@ onclick="openContactModal('General Inquiry')">
                                 onclick="openGalleryModal('Handbills & Flyers')">View Gallery</button>
                     </div>
                 </div>
+                <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
+                    <img src="https://placehold.co/500x200/f97316/ffffff?text=Handbill+Design" alt="Handbill Sample" class="w-full h-3/5 object-cover">
+                    <div class="p-3 flex flex-col flex-grow justify-between bg-white">
+                        <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Bill Books & NotePads</h4>
+                        <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
+                                onclick="openGalleryModal('BN')">View Gallery</button>
+                    </div>
+                </div>
                 
                 <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
                     <img src="https://placehold.co/500x200/ec4899/ffffff?text=Wedding+Card" alt="Wedding Card Sample" class="w-full h-3/5 object-cover">
                     <div class="p-3 flex flex-col flex-grow justify-between bg-white">
-                        <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Wedding Cards</h4>
+                        <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Banners</h4>
                         <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
-                                onclick="openGalleryModal('Wedding Cards')">View Gallery</button>
+                                onclick="openGalleryModal('Ban')">View Gallery</button>
+                    </div>
+                </div>
+                 <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
+                    <img src="https://placehold.co/500x200/ec4899/ffffff?text=Wedding+Card" alt="Wedding Card Sample" class="w-full h-3/5 object-cover">
+                    <div class="p-3 flex flex-col flex-grow justify-between bg-white">
+                        <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Vinyl & Posters</h4>
+                        <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
+                                onclick="openGalleryModal('vp')">View Gallery</button>
                     </div>
                 </div>
                 
@@ -838,15 +895,21 @@ onclick="openContactModal('General Inquiry')">
                 <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
                     <img src="https://placehold.co/500x200/a855f7/ffffff?text=Logo+Design" alt="Calendar Sample" class="w-full h-3/5 object-cover">
                     <div class="p-3 flex flex-col flex-grow justify-between bg-white">
-                        <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Calendar Design</h4>
+                        <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Business ID cards</h4>
                         <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
-                                onclick="openGalleryModal('Calendar Design')">View Gallery</button>
+                                onclick="openGalleryModal('BID')">View Gallery</button>
+                    </div>
+                </div>
+                <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
+                    <img src="https://placehold.co/500x200/a855f7/ffffff?text=Logo+Design" alt="Calendar Sample" class="w-full h-3/5 object-cover">
+                    <div class="p-3 flex flex-col flex-grow justify-between bg-white">
+                        <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Custom Stickers & Labels</h4>
+                        <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
+                                onclick="openGalleryModal('csl')">View Gallery</button> 
                     </div>
                 </div>
             </div>
-             <p class="text-center text-sm text-gray-500 mt-8">
-                NOTE: Replace the `src` attribute of the `<img>` tags above and in the `galleryImages` JS object with publicly accessible links to your images.
-            </p>
+            
         </div>
     </section>
 
@@ -1256,11 +1319,18 @@ onclick="openContactModal('General Inquiry')">
                 'https://placehold.co/500x500/10b981/ffffff?text=T-Shirt+Print+3',
             ],
             'Handbills & Flyers': [
-                'https://placehold.co/500x400/f97316/ffffff?text=Handbill+Design+1',
-                'https://placehold.co/500x400/f97316/ffffff?text=Handbill+Design+2',
-                'https://placehold.co/500x400/f97316/ffffff?text=Handbill+Design+3',
-                'https://placehold.co/500x400/f97316/ffffff?text=Handbill+Design+4',
-                'https://placehold.co/500x400/f97316/ffffff?text=Handbill+Design+5',
+                'bill/1.jpg',
+                'bill/3.jpg',
+                'bill/4.jpg',
+                'bill/5.jpg',
+                'bill/6.jpg',
+                'bill/7.jpg',
+                'bill/8.jpg',
+                'bill/10.jpg',
+                'bill/11.jpg',
+                'bill/13.jpg',
+                'bill/14.jpg',
+                
             ],
             'Wedding Cards': [
                 'https://placehold.co/500x500/ec4899/ffffff?text=Wedding+Card+1',
@@ -1273,7 +1343,37 @@ onclick="openContactModal('General Inquiry')">
                 'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+3',
                 'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+4',
             ],
-            'Calendar Design': [
+            'BID': [
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+1',
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+2',
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+3',
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+4',
+            ],
+            'csl': [
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+1',
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+2',
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+3',
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+4',
+            ],
+            'BN': [
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+1',
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+2',
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+3',
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+4',
+            ],
+            'GD': [
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+1',
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+2',
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+3',
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+4',
+            ],
+            'Ban': [
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+1',
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+2',
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+3',
+                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+4',
+            ],
+            'vp': [
                 'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+1',
                 'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+2',
                 'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+3',
