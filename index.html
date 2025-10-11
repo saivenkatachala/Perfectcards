@@ -420,6 +420,56 @@
             color: #323232;
         }
         
+        /* Video thumbnail styling */
+        .video-thumbnail {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .video-thumbnail::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        
+        .video-thumbnail:hover::after {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(247, 183, 0, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        
+        .video-thumbnail:hover .video-play-icon {
+            background: rgba(247, 183, 0, 1);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .video-play-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+            margin-left: 4px;
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .floating-action-btn {
@@ -433,11 +483,17 @@
                 bottom: 60px;
                 min-width: 140px;
             }
+            
+            .video-play-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .video-play-icon svg {
+                width: 20px;
+                height: 20px;
+            }
         }
-
-
-
-
     </style>
 </head>
 <body class="min-h-screen">
@@ -512,7 +568,7 @@ onclick="openContactModal('General Inquiry')">
                             <div class="p-6 flex flex-col justify-between flex-grow">
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2 glitter-text">Wedding Cards & Custom Invitations</h4>
-                                    <p class="text-gray-600 text-sm mb-4" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Elegant and personalized invitations, wedding cards, and stationery for special occasions.</p>
+                                    <p class="text-gray-600 text-sm mb-4">Elegant and personalized invitations, wedding cards, and stationery for special occasions.</p>
                                 </div>
                                 <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
                                         onclick="openContactModal('Wedding Cards')">Inquire</button>
@@ -527,7 +583,7 @@ onclick="openContactModal('General Inquiry')">
                             <div class="p-6 flex flex-col justify-between flex-grow">
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2 glitter-text">Graphic Design & CDR Templates</h4>
-                                    <p class="text-gray-600 text-sm mb-4" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Creative graphic designs and ready-to-use CDR templates for every project.</p>
+                                    <p class="text-gray-600 text-sm mb-4">Creative graphic designs and ready-to-use CDR templates for every project.</p>
                                 </div>
                                <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
                                         onclick="openContactModal('Graphic Design')">Inquire</button>
@@ -543,7 +599,7 @@ onclick="openContactModal('General Inquiry')">
                             <div class="p-6 flex flex-col justify-between flex-grow">
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2 glitter-text">Business Cards</h4>
-                                    <p class="text-gray-600 text-sm mb-4" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">High-quality printing and design for professional and memorable business cards.</p>
+                                    <p class="text-gray-600 text-sm mb-4">High-quality printing and design for professional and memorable business cards.</p>
                                 </div>
                                 <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
                                         onclick="openContactModal('Business Cards')">Inquire</button>
@@ -559,7 +615,7 @@ onclick="openContactModal('General Inquiry')">
                             <div class="p-6 flex flex-col justify-between flex-grow">
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2 glitter-text">Logo Design</h4>
-                                    <p class="text-gray-600 text-sm mb-4" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Crafting unique and impactful logos that define your brand identity.</p>
+                                    <p class="text-gray-600 text-sm mb-4">Crafting unique and impactful logos that define your brand identity.</p>
                                 </div>
                                 <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
                                         onclick="openContactModal('Logo Design')">Inquire</button>
@@ -574,7 +630,7 @@ onclick="openContactModal('General Inquiry')">
                             <div class="p-6 flex flex-col justify-between flex-grow">
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2 glitter-text">Banners</h4>
-                                    <p class="text-gray-600 text-sm mb-4" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Designing eye-catching banners that capture attention and convey your message instantly.</p>
+                                    <p class="text-gray-600 text-sm mb-4">Crafting unique and impactful logos that define your brand identity.</p>
                                 </div>
                                 <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
                                         onclick="openContactModal('Banners')">Inquire</button>
@@ -589,7 +645,7 @@ onclick="openContactModal('General Inquiry')">
                             <div class="p-6 flex flex-col justify-between flex-grow">
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2 glitter-text">Vinyl & Posters</h4>
-                                    <p class="text-gray-600 text-sm mb-4" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Creating vibrant vinyls and posters that make your brand stand out anywhere.</p>
+                                    <p class="text-gray-600 text-sm mb-4">Crafting unique and impactful logos that define your brand identity.</p>
                                 </div>
                                 <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
                                         onclick="openContactModal('Vinyl & Posters')">Inquire</button>
@@ -604,7 +660,7 @@ onclick="openContactModal('General Inquiry')">
                             <div class="p-6 flex flex-col justify-between flex-grow">
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2 glitter-text">Bill Books & NotePads</h4>
-                                    <p class="text-gray-600 text-sm mb-4" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Professional printing for custom invoice books, receipt books, and ledgers for business operations.</p>
+                                    <p class="text-gray-600 text-sm mb-4">Professional printing for custom invoice books, receipt books, and ledgers for business operations.</p>
                                 </div>
                                 <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
                                     onclick="openContactModal('Bill Books & NotePads')">Inquire</button>
@@ -620,7 +676,7 @@ onclick="openContactModal('General Inquiry')">
                             <div class="p-6 flex flex-col justify-between flex-grow">
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2 glitter-text">Handbills & Flyers</h4>
-                                    <p class="text-gray-600 text-sm mb-4" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Eye-catching design and quick turnaround printing for promotional handbills and flyers.</p>
+                                    <p class="text-gray-600 text-sm mb-4">Eye-catching design and quick turnaround printing for promotional handbills and flyers.</p>
                                 </div>
                                 <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
                                         onclick="openContactModal('Handbills / Flyers')">Inquire</button>
@@ -635,7 +691,7 @@ onclick="openContactModal('General Inquiry')">
                             <div class="p-6 flex flex-col justify-between flex-grow">
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2 glitter-text">Brochures & Catalogs</h4>
-                                    <p class="text-gray-600 text-sm mb-4" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Multi-page designs and professional printing for detailed business brochures.</p>
+                                    <p class="text-gray-600 text-sm mb-4">Multi-page designs and professional printing for detailed business brochures.</p>
                                 </div>
                                 <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
                                         onclick="openContactModal('Brochures & Catalogs')">Inquire</button>
@@ -680,7 +736,7 @@ onclick="openContactModal('General Inquiry')">
                             <div class="p-6 flex flex-col justify-between flex-grow">
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2 glitter-text">T-Shirt Design & Printing</h4>
-                                    <p class="text-gray-600 text-sm mb-4" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Custom artwork and high-quality printing for apparel and merchandising.</p>
+                                    <p class="text-gray-600 text-sm mb-4">Custom artwork and high-quality printing for apparel and merchandising.</p>
                                 </div>
                                 <button class="mt-4 bg-[#323232] hover:bg-[#F7B700] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
                                         onclick="openContactModal('T-Shirt Design')">Inquire</button>
@@ -807,7 +863,7 @@ onclick="openContactModal('General Inquiry')">
           
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                  <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
-                    <img src="https://placehold.co/500x200/ec4899/ffffff?text=Wedding+Card" alt="Wedding Card Sample" class="w-full h-3/5 object-cover">
+                    <img src="wc/7.jpg" alt="Wedding Card Sample" class="w-full h-3/5 object-cover">
                     <div class="p-3 flex flex-col flex-grow justify-between bg-white">
                         <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Wedding Cards</h4>
                         <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
@@ -815,16 +871,16 @@ onclick="openContactModal('General Inquiry')">
                     </div>
                 </div>
                 <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
-                    <img src="https://placehold.co/500x200/071952/F7B700?text=Business+Cards" alt="Business Card Sample" class="w-full h-3/5 object-cover">
+                    <img src="gdcdr/1.jpg" alt="Business Card Sample" class="w-full h-3/5 object-cover">
                     <div class="p-3 flex flex-col flex-grow justify-between bg-white">
                         <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Graphic Design & CDR Templates</h4>
                         <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
-                                onclick="openGalleryModal('GD')">View Gallery</button>
+                                onclick="openGalleryModal('Graphic Design & CDR Templates')">View Gallery</button>
                     </div>
                 </div>
                 
                 <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
-                    <img src="https://placehold.co/500x200/071952/F7B700?text=Business+Cards" alt="Business Card Sample" class="w-full h-3/5 object-cover">
+                    <img src="vc/2.jpg" alt="Business Card Sample" class="w-full h-3/5 object-cover">
                     <div class="p-3 flex flex-col flex-grow justify-between bg-white">
                         <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Business Cards</h4>
                         <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
@@ -833,7 +889,7 @@ onclick="openContactModal('General Inquiry')">
                 </div>
 
                 <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
-                    <img src="https://placehold.co/500x200/6366f1/ffffff?text=Brochure+Design" alt="Brochure Sample" class="w-full h-3/5 object-cover">
+                    <img src="bc/9.jpg" alt="Brochure Sample" class="w-full h-3/5 object-cover">
                     <div class="p-3 flex flex-col flex-grow justify-between bg-white">
                         <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Brochures & Catalogs</h4>
                         <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
@@ -842,7 +898,7 @@ onclick="openContactModal('General Inquiry')">
                 </div>
 
                 <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
-                    <img src="https://placehold.co/500x200/10b981/ffffff?text=T-Shirt+Print" alt="T-Shirt Sample" class="w-full h-3/5 object-cover">
+                    <img src="TS/3.png" alt="T-Shirt Sample" class="w-full h-3/5 object-cover">
                     <div class="p-3 flex flex-col flex-grow justify-between bg-white">
                         <h4 class="text-xl font-bold text-p-navy mb-2 text-center">T-Shirt Design & Print</h4>
                         <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
@@ -851,7 +907,7 @@ onclick="openContactModal('General Inquiry')">
                 </div>
 
                 <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
-                    <img src="https://placehold.co/500x200/f97316/ffffff?text=Handbill+Design" alt="Handbill Sample" class="w-full h-3/5 object-cover">
+                    <img src="hb/1.png" alt="Handbill Sample" class="w-full h-3/5 object-cover">
                     <div class="p-3 flex flex-col flex-grow justify-between bg-white">
                         <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Handbills & Flyers</h4>
                         <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
@@ -859,33 +915,33 @@ onclick="openContactModal('General Inquiry')">
                     </div>
                 </div>
                 <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
-                    <img src="https://placehold.co/500x200/f97316/ffffff?text=Handbill+Design" alt="Handbill Sample" class="w-full h-3/5 object-cover">
+                    <img src="bill/10.jpg" alt="Handbill Sample" class="w-full h-3/5 object-cover">
                     <div class="p-3 flex flex-col flex-grow justify-between bg-white">
                         <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Bill Books & NotePads</h4>
                         <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
-                                onclick="openGalleryModal('BN')">View Gallery</button>
+                                onclick="openGalleryModal('Bill Books & NotePads')">View Gallery</button>
                     </div>
                 </div>
                 
                 <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
-                    <img src="https://placehold.co/500x200/ec4899/ffffff?text=Wedding+Card" alt="Wedding Card Sample" class="w-full h-3/5 object-cover">
+                    <img src="banners/3.jpeg" alt="Wedding Card Sample" class="w-full h-3/5 object-cover">
                     <div class="p-3 flex flex-col flex-grow justify-between bg-white">
                         <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Banners</h4>
                         <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
-                                onclick="openGalleryModal('Ban')">View Gallery</button>
+                                onclick="openGalleryModal('Banners')">View Gallery</button>
                     </div>
                 </div>
                  <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
-                    <img src="https://placehold.co/500x200/ec4899/ffffff?text=Wedding+Card" alt="Wedding Card Sample" class="w-full h-3/5 object-cover">
+                    <img src="vp/7.jpg" alt="Wedding Card Sample" class="w-full h-3/5 object-cover">
                     <div class="p-3 flex flex-col flex-grow justify-between bg-white">
                         <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Vinyl & Posters</h4>
                         <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
-                                onclick="openGalleryModal('vp')">View Gallery</button>
+                                onclick="openGalleryModal('Vinyl & Posters')">View Gallery</button>
                     </div>
                 </div>
                 
                 <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
-                    <img src="https://placehold.co/500x200/a855f7/ffffff?text=Logo+Design" alt="Logo Sample" class="w-full h-3/5 object-cover">
+                    <img src="logo/7.jpg" alt="Logo Sample" class="w-full h-3/5 object-cover">
                     <div class="p-3 flex flex-col flex-grow justify-between bg-white">
                         <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Logo Design</h4>
                         <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
@@ -893,19 +949,19 @@ onclick="openContactModal('General Inquiry')">
                     </div>
                 </div>
                 <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
-                    <img src="https://placehold.co/500x200/a855f7/ffffff?text=Logo+Design" alt="Calendar Sample" class="w-full h-3/5 object-cover">
+                    <img src="id/4.jpg" alt="Calendar Sample" class="w-full h-3/5 object-cover">
                     <div class="p-3 flex flex-col flex-grow justify-between bg-white">
                         <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Business ID cards</h4>
                         <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
-                                onclick="openGalleryModal('BID')">View Gallery</button>
+                                onclick="openGalleryModal('Business ID cards')">View Gallery</button>
                     </div>
                 </div>
                 <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
-                    <img src="https://placehold.co/500x200/a855f7/ffffff?text=Logo+Design" alt="Calendar Sample" class="w-full h-3/5 object-cover">
+                    <img src="sti/7.jpg" alt="Calendar Sample" class="w-full h-3/5 object-cover">
                     <div class="p-3 flex flex-col flex-grow justify-between bg-white">
                         <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Custom Stickers & Labels</h4>
                         <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
-                                onclick="openGalleryModal('csl')">View Gallery</button> 
+                                onclick="openGalleryModal('Custom Stickers & Labels')">View Gallery</button> 
                     </div>
                 </div>
             </div>
@@ -1276,7 +1332,8 @@ onclick="openContactModal('General Inquiry')">
             </svg>
         </button>
         <div class="fullscreen-image-container">
-            <img id="fullscreen-image" class="fullscreen-image" src="" alt="Fullscreen image">
+            <img id="fullscreen-content-image" class="fullscreen-image" src="" alt="Gallery Image">
+            <video id="fullscreen-content-video" class="fullscreen-image hidden" src="" controls loop muted playsinline></video>
         </div>
         <button class="fullscreen-nav-btn fullscreen-next-btn" onclick="showNextImage()">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1300,25 +1357,125 @@ onclick="openContactModal('General Inquiry')">
         // *******************************************************************
         const galleryImages = {
             'Business Cards': [
-                'logo.png',
-                'https://placehold.co/500x350/071952/F7B700?text=Card+Sample+2',
-                'https://placehold.co/500x350/071952/F7B700?text=Card+Sample+3',
-                'https://placehold.co/500x350/071952/F7B700?text=Card+Sample+4',
-                'https://placehold.co/500x350/071952/F7B700?text=Card+Sample+5',
-                'https://placehold.co/500x350/071952/F7B700?text=Card+Sample+6',
+                
+                'vc/1.jpg',
+                'vc/2.jpg',
+                'vc/3.jpg',
+                'vc/4.jpg',
+                'vc/5.jpg',
+                'vc/6.jpg',
+                'vc/7.jpg', 
+                'vc/8.jpg',
+                'vc/9.jpg',
+                'vc/10.jpg' 
             ],
             'Brochures & Catalogs': [
-                'https://placehold.co/500x700/6366f1/ffffff?text=Brochure+1',
-                'https://placehold.co/500x700/6366f1/ffffff?text=Brochure+2',
-                'https://placehold.co/500x700/6366f1/ffffff?text=Brochure+3',
-                'https://placehold.co/500x700/6366f1/ffffff?text=Brochure+4',
+                'bc/1.png',
+                'bc/2.jpg',
+                'bc/3.jpg',
+                'bc/4.jpg',
+                'bc/5.jpg',
+                'bc/6.jpg',
+                'bc/7.jpg',
+                'bc/8.jpg', 
+                'bc/9.jpg',
+                'bc/10.jpg'
             ],
             'T-Shirt Design & Print': [
-                'https://placehold.co/500x500/10b981/ffffff?text=T-Shirt+Print+1',
-                'https://placehold.co/500x500/10b981/ffffff?text=T-Shirt+Print+2',
-                'https://placehold.co/500x500/10b981/ffffff?text=T-Shirt+Print+3',
+                'TS/1.png',
+                'TS/2.jpg',
+                'TS/3.png',
+                'TS/4.jpg', 
+                'TS/5.jpg',
+                'TS/6.jpg', 
+                'TS/7.jpg',
+                'TS/8.jpg',             
+                'TS/9.jpg',
+                'TS/10.jpg'
             ],
             'Handbills & Flyers': [
+                'hb/1.png',
+                'hb/2.jpg',
+                'hb/3.jpg',
+                'hb/4.jpg',
+                'hb/5.jpg',
+                'hb/6.jpg',
+                'hb/7.png',
+                'hb/8.jpg',
+                'hb/9.jpeg',
+                'hb/10.jpg'
+                
+            ],
+            'Wedding Cards': [
+                {type: 'image', src: 'wc/1.jpg'},
+                {type: 'image', src: 'wc/2.jpg'},
+                {type: 'image', src: 'wc/3.jpg'}, 
+                {type: 'image', src: 'wc/4.jpg'},
+                {type: 'image', src: 'wc/5.jpg'},
+                {type: 'video', src: 'wc/6.MP4'},
+                {type: 'image', src: 'wc/7.jpg'},
+                {type: 'image', src: 'wc/8.jpg'},
+                {type: 'image', src: 'wc/9.jpg'},
+                {type: 'image', src: 'wc/10.jpg'},
+                {type: 'image', src: 'wc/11.jpg'},
+                {type: 'image', src: 'wc/12.jpg'},
+                {type: 'image', src: 'wc/13.jpg'},
+                {type: 'image', src: 'wc/14.jpeg'},
+                {type: 'image', src: 'wc/15.jpeg'},
+                {type: 'image', src: 'wc/16.jpeg'},
+                {type: 'image', src: 'wc/17.jpeg'},    
+                {type: 'image', src: 'wc/18.jpeg'},
+                {type: 'image', src: 'wc/19.jpeg'},
+                {type: 'image', src: 'wc/20.jpeg'},
+                {type: 'image', src: 'wc/21.jpeg'},
+                {type: 'image', src: 'wc/22.jpeg'},
+                {type: 'video', src: 'wc/23.mp4'},
+                {type: 'video', src: 'wc/24.mp4'},
+                {type: 'video', src: 'wc/25.mp4'},
+                {type: 'video', src: 'wc/26.mp4'},
+                {type: 'video', src: 'wc/27.mp4'},   
+                {type: 'video', src: 'wc/28.mp4'},
+                {type: 'video', src: 'wc/29.mp4'},   
+                {type: 'video', src: 'wc/30.mp4'}
+          
+            ],
+            'Logo Design': [
+                'logo/1.jpg',
+                'logo/2.jpg',
+                'logo/3.jpg',
+                'logo/4.jpg',
+                'logo/5.png',
+                'logo/6.jpg',
+                'logo/7.jpg',
+                'logo/8.jpg',
+                'logo/9.jpg',
+                'logo/10.jpg',
+            ],
+            'Business ID cards': [
+                'id/1.jpg',
+                'id/2.png',
+                'id/3.jpg',
+                'id/4.jpg',
+                'id/5.png',
+                'id/6.jpeg',
+                'id/7.jpg',
+                'id/8.jpg',
+                'id/9.jpg',
+                'id/10.jpeg',
+            ],
+            'Custom Stickers & Labels': [
+                'sti/1.jpg',
+                'sti/2.jpg',
+                'sti/3.jpg',            
+                'sti/4.jpg',
+                'sti/5.jpg',
+                'sti/6.jpg',
+                'sti/7.jpg',
+                'sti/8.jpg',
+                'sti/9.png',
+                'sti/10.jpg',
+            ],
+            'Bill Books & NotePads': [
                 'bill/1.jpg',
                 'bill/3.jpg',
                 'bill/4.jpg',
@@ -1332,52 +1489,43 @@ onclick="openContactModal('General Inquiry')">
                 'bill/14.jpg',
                 
             ],
-            'Wedding Cards': [
-                'https://placehold.co/500x500/ec4899/ffffff?text=Wedding+Card+1',
-                'https://placehold.co/500x500/ec4899/ffffff?text=Wedding+Card+2',
-                'https://placehold.co/500x500/ec4899/ffffff?text=Wedding+Card+3',
+            'Graphic Design & CDR Templates': [
+                'gdcdr/1.jpg',
+                'gdcdr/2.png',
+                'gdcdr/3.png',
+                'gdcdr/4.jpg',
+                'gdcdr/5.png',
+                'gdcdr/6.jpg',
+                'gdcdr/7.jpg',
+                'gdcdr/8.jpg',
+                'gdcdr/9.jpeg',
+                'gdcdr/10.jpeg'
             ],
-            'Logo Design': [
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+1',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+2',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+3',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+4',
+            'Banners': [
+                'banners/1.jpg',
+                'banners/2.jpeg',
+                'banners/3.jpeg',    
+                'banners/4.jpg',
+                'banners/5.jpg',
+                'banners/6.jpg',
+                'banners/7.jpg',
+                'banners/8.jpg',
+                'banners/9.jpeg',    
+                'banners/10.jpg',
+                
             ],
-            'BID': [
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+1',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+2',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+3',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+4',
-            ],
-            'csl': [
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+1',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+2',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+3',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+4',
-            ],
-            'BN': [
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+1',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+2',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+3',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+4',
-            ],
-            'GD': [
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+1',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+2',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+3',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+4',
-            ],
-            'Ban': [
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+1',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+2',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+3',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+4',
-            ],
-            'vp': [
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+1',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+2',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+3',
-                'https://placehold.co/500x350/a855f7/ffffff?text=Logo+Design+4',
+            'Vinyl & Posters': [
+                'vp/1.jpg',
+                'vp/2.jpg',
+                'vp/3.jpg',
+                'vp/4.jpg',
+                'vp/5.jpg',
+                'vp/6.jpg',
+                'vp/7.jpg',
+                'vp/8.jpg',
+                'vp/9.jpg',
+                'vp/10.jpg',
+             
             ]
         };
         // *******************************************************************
@@ -1415,7 +1563,8 @@ onclick="openContactModal('General Inquiry')">
 
         // NEW: Full-screen image viewer elements
         const fullscreenImageViewer = document.getElementById('fullscreen-image-viewer');
-        const fullscreenImage = document.getElementById('fullscreen-image');
+        const fullscreenImage = document.getElementById('fullscreen-content-image');
+        const fullscreenVideo = document.getElementById('fullscreen-content-video');
 
         // NEW: Floating Action Button Elements
         const floatingActionBtn = document.getElementById('floating-action-btn');
@@ -1487,23 +1636,27 @@ onclick="openContactModal('General Inquiry')">
         const legalContentData = {
             'Terms & Conditions': `
                 <h5 class="text-xl font-bold text-p-navy mb-4">Terms & Conditions</h5>
-                <p class="mb-4">Welcome to Perfect Cards & Printers. By accessing our website and using our services, you agree to comply with and be bound by the following terms and conditions.</p>
+                <p class="mb-4">Welcome to Perfect Cards & Printers 
+By accessing or placing an order through our website </p><a href="https://perfectcards.netlify.app/" class="text-gold hover:text-gold font-medium transition">Perfect Cards & Printers</a>
                 
-                <h6 class="font-bold text-p-navy mb-2">1. Services</h6>
-                <p class="mb-4">We provide printing and design services including business cards, brochures, wedding cards, and more. All services are subject to availability and our approval.</p>
+                <h6 class="font-bold text-p-navy mb-2">1. Orders & Payments</h6>
+                <p class="mb-4">Orders are confirmed only after full or partial payment (as mutually agreed).Prices are quoted based on the customer’s requirements (size, quantity, paper quality, finishing, etc.).Payments can be made via UPI, bank transfer, or other approved methods.
+Orders will not be processed until payment confirmation is received.</p>
                 
-                <h6 class="font-bold text-p-navy mb-2">2. Orders & Payment</h6>
-                <p class="mb-4">Orders are confirmed upon receipt of full payment or an agreed deposit. We reserve the right to cancel any order if payment is not received as agreed.</p>
+                <h6 class="font-bold text-p-navy mb-2">2. Design Approval</h6>
+                <p class="mb-4">Customers must review and approve final designs before printing.Once a design is approved, Perfect Cards & Printers is not responsible for any spelling errors, color variations, or layout mistakes.Any later changes after approval will be treated as a new job and may incur additional costs.</p>
                 
-                <h6 class="font-bold text-p-navy mb-2">3. Intellectual Property</h6>
-                <p class="mb-4">All designs, logos, and content created by Perfect Cards & Printers remain our intellectual property until full payment is received.</p>
+                <h6 class="font-bold text-p-navy mb-2">3. Printing & Color Variation</h6>
+                <p class="mb-4">Due to printing technology limitations, slight color variation (up to 10%) may occur between digital proofs and the final print.Such variations are standard in the printing industry and are not considered defects.</p>
                 
-                <h6 class="font-bold text-p-navy mb-2">4. Delivery</h6>
-                <p class="mb-4">Delivery times are estimates and not guaranteed. We are not liable for delays caused by circumstances beyond our control.</p>
+                <h6 class="font-bold text-p-navy mb-2">4. Delivery & Shipping</h6>
+                <p class="mb-4">Delivery timelines depend on the product type and order quantity.We deliver within Hyderabad and can ship outside Hyderabad using third-party courier partners.Shipping charges and timelines vary based on location.We are not responsible for delays or damage caused during transit by courier services.</p>
                 
-                <h6 class="font-bold text-p-navy mb-2">5. Returns & Refunds</h6>
-                <p class="mb-4">Due to the custom nature of our products, we do not accept returns or offer refunds unless there is a proven defect in our workmanship.</p>
-                
+                <h6 class="font-bold text-p-navy mb-2">5. Cancellation & Refunds</h6>
+                <p class="mb-4">Orders cannot be cancelled once printing has started.Design fees are non-refundable once the creative process has begun.Refunds, if approved, will be processed at our sole discretion and only for unprinted jobs.</p>
+                <h6 class="font-bold text-p-navy mb-2">6. Intellectual Property</h6>
+                <p class="mb-4">All designs, layouts, and templates created by Perfect Cards & Printers remain our property unless otherwise agreed in writing.
+Clients may not reproduce, resell, or modify designs without prior written permission.</p>
                 <p class="text-sm text-gray-500 mt-6">Last updated: January 2025</p>
             `,
             'Privacy Policy': `
@@ -1819,13 +1972,53 @@ onclick="openContactModal('General Inquiry')">
             if (images.length === 0) {
                 galleryImagesContainer.innerHTML = '<p class="col-span-full text-center text-gray-500 py-10">No specific images available for this category yet. Please check back later!</p>';
             } else {
-                images.forEach((imageUrl, index) => {
-                    const imgHtml = `
-                        <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 transform hover:scale-[1.02] cursor-pointer">
-                            <img src="${imageUrl}" alt="${category} Sample" class="w-full h-40 object-cover gallery-image" loading="lazy" onclick="openFullscreenImage('${category}', ${index})">
-                        </div>
-                    `;
-                    galleryImagesContainer.insertAdjacentHTML('beforeend', imgHtml);
+                images.forEach((media, index) => {
+                    // Handle both old format (string) and new format (object with type)
+                    let mediaType, mediaSrc;
+                    
+                    if (typeof media === 'string') {
+                        // Old format - assume it's an image
+                        mediaType = 'image';
+                        mediaSrc = media;
+                    } else {
+                        // New format - object with type and src
+                        mediaType = media.type;
+                        mediaSrc = media.src;
+                    }
+                    
+                    let mediaHtml;
+                    
+                    if (mediaType === 'video') {
+                        // Create video thumbnail with play button
+                        mediaHtml = `
+                            <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 transform hover:scale-[1.02] cursor-pointer video-thumbnail">
+                                <video class="w-full h-40 object-cover" muted playsinline>
+                                    <source src="${mediaSrc}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="video-play-icon">
+                                    <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        // Create image thumbnail
+                        mediaHtml = `
+                            <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300 transform hover:scale-[1.02] cursor-pointer">
+                                <img src="${mediaSrc}" alt="${category} Sample" class="w-full h-40 object-cover gallery-image" loading="lazy">
+                            </div>
+                        `;
+                    }
+                    
+                    galleryImagesContainer.insertAdjacentHTML('beforeend', mediaHtml);
+                    
+                    // Add click event to the newly created element
+                    const lastElement = galleryImagesContainer.lastElementChild;
+                    lastElement.addEventListener('click', () => {
+                        openFullscreenImage(category, index);
+                    });
                 });
             }
 
@@ -1855,7 +2048,38 @@ onclick="openContactModal('General Inquiry')">
             currentImages = galleryImages[category] || [];
             
             if (currentImages.length > 0) {
-                fullscreenImage.src = currentImages[currentImageIndex];
+                // Get the current media item
+                const media = currentImages[currentImageIndex];
+                
+                // Determine if it's an image or video
+                let mediaType, mediaSrc;
+                
+                if (typeof media === 'string') {
+                    // Old format - assume it's an image
+                    mediaType = 'image';
+                    mediaSrc = media;
+                } else {
+                    // New format - object with type and src
+                    mediaType = media.type;
+                    mediaSrc = media.src;
+                }
+                
+                if (mediaType === 'video') {
+                    // Show video, hide image
+                    fullscreenImage.classList.add('hidden');
+                    fullscreenVideo.classList.remove('hidden');
+                    fullscreenVideo.src = mediaSrc;
+                    fullscreenVideo.load();
+                    fullscreenVideo.play();
+                } else {
+                    // Show image, hide video
+                    fullscreenVideo.classList.add('hidden');
+                    fullscreenImage.classList.remove('hidden');
+                    fullscreenImage.src = mediaSrc;
+                    // Pause video if it's playing
+                    fullscreenVideo.pause();
+                }
+                
                 fullscreenImageViewer.classList.add('active');
                 
                 // Prevent body scrolling when fullscreen viewer is open
@@ -1864,6 +2088,8 @@ onclick="openContactModal('General Inquiry')">
         }
 
         function closeFullscreenImage() {
+            // Pause video if playing
+            fullscreenVideo.pause();
             fullscreenImageViewer.classList.remove('active');
             
             // Restore body scrolling
@@ -1873,14 +2099,14 @@ onclick="openContactModal('General Inquiry')">
         function showNextImage() {
             if (currentImages.length > 0) {
                 currentImageIndex = (currentImageIndex + 1) % currentImages.length;
-                fullscreenImage.src = currentImages[currentImageIndex];
+                openFullscreenImage(currentGalleryCategory, currentImageIndex);
             }
         }
 
         function showPreviousImage() {
             if (currentImages.length > 0) {
                 currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
-                fullscreenImage.src = currentImages[currentImageIndex];
+                openFullscreenImage(currentGalleryCategory, currentImageIndex);
             }
         }
 
@@ -1972,5 +2198,3 @@ onclick="openContactModal('General Inquiry')">
     </script>
 </body>
 </html>
-
-
