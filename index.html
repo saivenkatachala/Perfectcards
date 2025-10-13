@@ -274,18 +274,35 @@
             pointer-events: all;
         }
 
-        .fullscreen-image-container {
+        /* .fullscreen-image-container {
             max-width: 90%;
             max-height: 90%;
             position: relative;
-        }
+        } */
+         .fullscreen-image-container {
+    /* Sets the main container size */
+    width: 80%;
+    max-width: 900px; /* Limits the maximum size on huge screens */
+    /* THIS IS THE KEY CHANGE: Forces a 4:3 rectangular shape for all images */
+    aspect-ratio: 4 / 3; 
+    position: relative;
+    max-height: 90%; /* Keep max-height limit */
+}
 
-        .fullscreen-image {
+        /* .fullscreen-image {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
             border-radius: 8px;
-        }
+        } */
+         .fullscreen-image {
+    /* THESE TWO LINES are necessary to force the image to fill the 4:3 container */
+    width: 100%;
+    height: 100%;
+    /* THIS IS THE KEY CHANGE: Forces the image to cover the entire container, cropping excess */
+    object-fit: cover; 
+    border-radius: 8px;
+}
 
         .fullscreen-close-btn {
             position: absolute;
@@ -534,7 +551,7 @@
     </div>
     </header>
 
-
+     
     <div class="hero-content text-center py-12 px-4">
     <h2 class="hero-title text-3xl md:text-4xl font-extrabold text-p-navy mb-3">
         Design & Print Perfect
@@ -626,7 +643,7 @@ onclick="openContactModal('General Inquiry')">
                 <div class="card-service rounded-xl shadow-lg">
                     <div class="card-inner">
                         <div class="card-front bg-white">
-                            <img src="logo1.png" alt="Logo Design Service" class="w-full h-40 object-cover rounded-t-xl">
+                            <img src="banner.jpg" alt="Logo Design Service" class="w-full h-40 object-cover rounded-t-xl">
                             <div class="p-6 flex flex-col justify-between flex-grow">
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2 glitter-text">Banners</h4>
@@ -641,7 +658,7 @@ onclick="openContactModal('General Inquiry')">
                 <div class="card-service rounded-xl shadow-lg">
                     <div class="card-inner">
                         <div class="card-front bg-white">
-                            <img src="logo1.png" alt="Logo Design Service" class="w-full h-40 object-cover rounded-t-xl">
+                            <img src="vp/11.jpg" alt="Logo Design Service" class="w-full h-40 object-cover rounded-t-xl">
                             <div class="p-6 flex flex-col justify-between flex-grow">
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2 glitter-text">Vinyl & Posters</h4>
@@ -702,7 +719,7 @@ onclick="openContactModal('General Inquiry')">
                 <div class="card-service rounded-xl shadow-lg">
                     <div class="card-inner">
                         <div class="card-front bg-white">
-                            <img src="br.jpg" alt="Brochures and Catalogs Printing" class="w-full h-40 object-cover rounded-t-xl">
+                            <img src="sti/11.png" alt="Brochures and Catalogs Printing" class="w-full h-40 object-cover rounded-t-xl">
                             <div class="p-6 flex flex-col justify-between flex-grow">
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2 glitter-text">Custom Stickers & Labels</h4>
@@ -717,7 +734,7 @@ onclick="openContactModal('General Inquiry')">
                 <div class="card-service rounded-xl shadow-lg">
                     <div class="card-inner">
                         <div class="card-front bg-white">
-                            <img src="br.jpg" alt="Brochures and Catalogs Printing" class="w-full h-40 object-cover rounded-t-xl">
+                            <img src="id/2.png" alt="Brochures and Catalogs Printing" class="w-full h-40 object-cover rounded-t-xl">
                             <div class="p-6 flex flex-col justify-between flex-grow">
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2 glitter-text">Business ID cards</h4>
@@ -813,7 +830,7 @@ onclick="openContactModal('General Inquiry')">
                             <div class="text-sm text-p-dark-grey">Years Experience</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-p-navy mb-1">10K+</div>
+                            <div class="text-3xl font-bold text-p-navy mb-1">200K+</div>
                             <div class="text-sm text-p-dark-grey">Projects Completed</div>
                         </div>
                         <div class="text-center">
@@ -863,7 +880,7 @@ onclick="openContactModal('General Inquiry')">
           
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                  <div class="card-gallery overflow-hidden rounded-xl shadow-xl hover:shadow-p-navy/50 transition duration-300 flex flex-col">
-                    <img src="wc/7.jpg" alt="Wedding Card Sample" class="w-full h-3/5 object-cover">
+                    <img src="wc/w2.webp" alt="Wedding Card Sample" class=" w-full h-3/5 object-cover">
                     <div class="p-3 flex flex-col flex-grow justify-between bg-white">
                         <h4 class="text-xl font-bold text-p-navy mb-2 text-center">Wedding Cards</h4>
                         <button class="bg-p-gold hover:bg-p-navy text-p-navy hover:text-[#F7B700] font-semibold py-2 rounded-lg transition"
@@ -1358,24 +1375,25 @@ onclick="openContactModal('General Inquiry')">
         const galleryImages = {
             'Business Cards': [
                 
-                'vc/1.jpg',
-                'vc/2.jpg',
-                'vc/3.jpg',
+                'vc/b1.jpg',
+                'vc/b7.jpg',
+                'vc/b4.webp',
                 'vc/4.jpg',
                 'vc/5.jpg',
-                'vc/6.jpg',
+                'vc/b6.jpg',
                 'vc/7.jpg', 
                 'vc/8.jpg',
                 'vc/9.jpg',
-                'vc/10.jpg' 
+                'vc/10.jpg' ,
+                'vc/b5.webp'
             ],
             'Brochures & Catalogs': [
                 'bc/1.png',
-                'bc/2.jpg',
-                'bc/3.jpg',
-                'bc/4.jpg',
+                'bc/bc1.jpg',
+                'bc/bc5.jpg',
+                'bc/bc3.avif',
                 'bc/5.jpg',
-                'bc/6.jpg',
+                'bc/bc4.jpg',
                 'bc/7.jpg',
                 'bc/8.jpg', 
                 'bc/9.jpg',
@@ -1388,10 +1406,10 @@ onclick="openContactModal('General Inquiry')">
                 'TS/4.jpg', 
                 'TS/5.jpg',
                 'TS/6.jpg', 
-                'TS/7.jpg',
+                'TS/t2.webp',
                 'TS/8.jpg',             
-                'TS/9.jpg',
-                'TS/10.jpg'
+                'TS/t3.jpg',
+                'TS/t4.webp'
             ],
             'Handbills & Flyers': [
                 'hb/1.png',
@@ -1410,30 +1428,30 @@ onclick="openContactModal('General Inquiry')">
                 {type: 'image', src: 'wc/1.jpg'},
                 {type: 'image', src: 'wc/2.jpg'},
                 {type: 'image', src: 'wc/3.jpg'}, 
+                {type: 'video', src: 'wc/6.MP4'},
                 {type: 'image', src: 'wc/4.jpg'},
                 {type: 'image', src: 'wc/5.jpg'},
-                {type: 'video', src: 'wc/6.MP4'},
                 {type: 'image', src: 'wc/7.jpg'},
+                {type: 'video', src: 'wc/23.mp4'},
                 {type: 'image', src: 'wc/8.jpg'},
                 {type: 'image', src: 'wc/9.jpg'},
                 {type: 'image', src: 'wc/10.jpg'},
+                {type: 'video', src: 'wc/24.mp4'},
                 {type: 'image', src: 'wc/11.jpg'},
                 {type: 'image', src: 'wc/12.jpg'},
                 {type: 'image', src: 'wc/13.jpg'},
+                {type: 'video', src: 'wc/25.mp4'},
                 {type: 'image', src: 'wc/14.jpeg'},
                 {type: 'image', src: 'wc/15.jpeg'},
                 {type: 'image', src: 'wc/16.jpeg'},
+                {type: 'video', src: 'wc/26.mp4'},
                 {type: 'image', src: 'wc/17.jpeg'},    
                 {type: 'image', src: 'wc/18.jpeg'},
                 {type: 'image', src: 'wc/19.jpeg'},
+                {type: 'video', src: 'wc/27.mp4'}, 
                 {type: 'image', src: 'wc/20.jpeg'},
                 {type: 'image', src: 'wc/21.jpeg'},
                 {type: 'image', src: 'wc/22.jpeg'},
-                {type: 'video', src: 'wc/23.mp4'},
-                {type: 'video', src: 'wc/24.mp4'},
-                {type: 'video', src: 'wc/25.mp4'},
-                {type: 'video', src: 'wc/26.mp4'},
-                {type: 'video', src: 'wc/27.mp4'},   
                 {type: 'video', src: 'wc/28.mp4'},
                 {type: 'video', src: 'wc/29.mp4'},   
                 {type: 'video', src: 'wc/30.mp4'}
@@ -1452,11 +1470,11 @@ onclick="openContactModal('General Inquiry')">
                 'logo/10.jpg',
             ],
             'Business ID cards': [
-                'id/1.jpg',
+                'id/b1.jpg',
                 'id/2.png',
                 'id/3.jpg',
                 'id/4.jpg',
-                'id/5.png',
+                'id/b2.jpg',
                 'id/6.jpeg',
                 'id/7.jpg',
                 'id/8.jpg',
@@ -1469,7 +1487,8 @@ onclick="openContactModal('General Inquiry')">
                 'sti/3.jpg',            
                 'sti/4.jpg',
                 'sti/5.jpg',
-                'sti/6.jpg',
+                'sti/s1.jpg',
+                'sti/s2.webp',
                 'sti/7.jpg',
                 'sti/8.jpg',
                 'sti/9.png',
@@ -1477,38 +1496,39 @@ onclick="openContactModal('General Inquiry')">
             ],
             'Bill Books & NotePads': [
                 'bill/1.jpg',
-                'bill/3.jpg',
-                'bill/4.jpg',
-                'bill/5.jpg',
-                'bill/6.jpg',
-                'bill/7.jpg',
-                'bill/8.jpg',
+                'bill/b1.webp',
+                'bill/b2.png',
+                'bill/b3.jpg',
+                'bill/b4.jpeg',
+                'bill/b5.png',
+                'bill/b6.webp',
                 'bill/10.jpg',
-                'bill/11.jpg',
+                'bill/b7.webp',
                 'bill/13.jpg',
                 'bill/14.jpg',
                 
             ],
             'Graphic Design & CDR Templates': [
                 'gdcdr/1.jpg',
-                'gdcdr/2.png',
+                'gdcdr/gd1.webp',
                 'gdcdr/3.png',
                 'gdcdr/4.jpg',
-                'gdcdr/5.png',
+                'gdcdr/gd2.webp',
                 'gdcdr/6.jpg',
-                'gdcdr/7.jpg',
+                'gdcdr/gd3.webp',
                 'gdcdr/8.jpg',
                 'gdcdr/9.jpeg',
-                'gdcdr/10.jpeg'
+                'gdcdr/10.jpeg',
+                'gdcdr/gd4.jpg',
             ],
             'Banners': [
                 'banners/1.jpg',
                 'banners/2.jpeg',
                 'banners/3.jpeg',    
                 'banners/4.jpg',
-                'banners/5.jpg',
+                'banners/bf1.jpeg',
                 'banners/6.jpg',
-                'banners/7.jpg',
+                'banners/bf2.png',
                 'banners/8.jpg',
                 'banners/9.jpeg',    
                 'banners/10.jpg',
@@ -1517,13 +1537,14 @@ onclick="openContactModal('General Inquiry')">
             'Vinyl & Posters': [
                 'vp/1.jpg',
                 'vp/2.jpg',
-                'vp/3.jpg',
-                'vp/4.jpg',
+                'vp/vp1.webp',
+                'vp/vp2.jpg',
                 'vp/5.jpg',
                 'vp/6.jpg',
                 'vp/7.jpg',
                 'vp/8.jpg',
-                'vp/9.jpg',
+                'vp/vp4.webp',
+                'vp/11.jpg',
                 'vp/10.jpg',
              
             ]
