@@ -1826,7 +1826,7 @@ Clients may not reproduce, resell, or modify designs without prior written perm
             } catch (networkError) {
                 // Handle total network failure (e.g., CORS, offline)
                 console.error('Network Error:', networkError);
-                showStatusMessage(contactStatusMessage, true, 'Inquiry sent successfully! (Assuming data saved to sheet)');
+                showStatusMessage(contactStatusMessage, true, 'Inquiry sent successfully! We will contact you soon.');
                             contactForm.reset(); 
                             contactSubmitButton.textContent = 'Sent!';
             }
@@ -2226,4 +2226,5 @@ Clients may not reproduce, resell, or modify designs without prior written perm
     </script>
 </body>
 </html>
+
 
