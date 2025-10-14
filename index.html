@@ -1371,9 +1371,9 @@ onclick="openContactModal('General Inquiry')">
         // NOTE: REPLACE THESE WITH YOUR DEPLOYED GOOGLE APPS SCRIPT URLs
         // *******************************************************************
         // 1. For Contact Inquiries
-        const APP_SCRIPT_URL_CONTACT = 'https://script.google.com/macros/s/AKfycbxXxGLAL0Nr-mQtAk_VZpQ7gIOvl_ml63p1eO5ASi5XYDNSSrEaSQJaltByALXZDiRq/exec'; 
+        const APP_SCRIPT_URL_CONTACT = 'https://script.google.com/macros/s/AKfycbwexeOz2IWXtxdQWtudtFuBQ8hPSOIBRTRL1_NV-n7a1OPQiI8myP5Yz3Fyr9bFG3aM/exec'; 
         // 2. For Review Submissions & Retrieval
-        const APP_SCRIPT_URL_REVIEWS = 'https://script.google.com/macros/s/AKfycbwEl1AxtS4L1leY64LqpBX9RvYJ7ux6UiQ4CY_P-cbGsStd1dltuDtjMTkx5XjVvMOx/exec'; 
+        const APP_SCRIPT_URL_REVIEWS = 'https://script.google.com/macros/s/AKfycbzyZTyAAIXLkHxsrcqKDceuGqrwIU8EF6_oJaMu0fqVRtjRtxHZ4YAUNQR-CGH7_AVD/exec'; 
         // *******************************************************************
 
         // *******************************************************************
@@ -1770,7 +1770,7 @@ Clients may not reproduce, resell, or modify designs without prior written perm
             e.preventDefault();
             
             // Check for placeholder URL
-            const isPlaceholderUrl = APP_SCRIPT_URL_CONTACT.includes('https://script.google.com/macros/s/AKfycbxXxGLAL0Nr-mQtAk_VZpQ7gIOvl_ml63p1eO5ASi5XYDNSSrEaSQJaltByALXZDiRq/exec');
+            const isPlaceholderUrl = APP_SCRIPT_URL_CONTACT.includes('https://script.google.com/macros/s/AKfycbwexeOz2IWXtxdQWtudtFuBQ8hPSOIBRTRL1_NV-n7a1OPQiI8myP5Yz3Fyr9bFG3aM/exec');
             
             contactSubmitButton.disabled = true;
             contactSubmitButton.textContent = 'Sending...';
@@ -1865,7 +1865,7 @@ Clients may not reproduce, resell, or modify designs without prior written perm
             e.preventDefault();
 
             // Check for placeholder URL (using the original logic for review submission check)
-            if (APP_SCRIPT_URL_REVIEWS.includes('https://script.google.com/macros/s/AKfycbwQuhdgYzGYfYcw2xALcigP9CDJ0wle89n1daJm7EJwkgAhXtCKXRw-47tnugip3xak/exec')) {
+            if (APP_SCRIPT_URL_REVIEWS.includes('https://script.google.com/macros/s/AKfycbz0jj3OKqW6bE_MFwFgCB1Cj50CQcoNouJp1xMUVJq9C7nmEnQ4O-JVGnWvUSGbcDT_/exec')) {
                 showStatusMessage(reviewStatusMessage, false, 'Error: Please replace APP_SCRIPT_URL_REVIEWS with your deployed Google Apps Script URL.');
                 return;
             }
@@ -1953,7 +1953,7 @@ Clients may not reproduce, resell, or modify designs without prior written perm
         // Fetch Reviews Function
         async function fetchReviews(isFreshSubmit = false) {
             // Only attempt to fetch if the URL is configured (checking against the original placeholder)
-            if (APP_SCRIPT_URL_REVIEWS.includes('https://script.google.com/macros/s/AKfycbwQuhdgYzGYfYcw2xALcigP9CDJ0wle89n1daJm7EJwkgAhXtCKXRw-47tnugip3xak/exec')) {
+            if (APP_SCRIPT_URL_REVIEWS.includes('https://script.google.com/macros/s/AKfycbz0jj3OKqW6bE_MFwFgCB1Cj50CQcoNouJp1xMUVJq9C7nmEnQ4O-JVGnWvUSGbcDT_/exec')) {
                 console.warn('Reviews URL not configured. Showing placeholder reviews.');
                 // Keep the default hardcoded reviews if we can't fetch
                 return; 
