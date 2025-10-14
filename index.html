@@ -1804,7 +1804,7 @@ Clients may not reproduce, resell, or modify designs without prior written perm
                         }
                     } catch (jsonError) {
                         if (isPlaceholderUrl) { // Only assume success if the URL is configured/expected
-                            showStatusMessage(contactStatusMessage, true, 'Inquiry sent successfully! (Assuming data saved to sheet)');
+                            showStatusMessage(contactStatusMessage, true, 'Inquiry sent successfully! We will contact you soon.');
                             contactForm.reset(); 
                             contactSubmitButton.textContent = 'Sent!';
                         } else {
@@ -2226,3 +2226,4 @@ Clients may not reproduce, resell, or modify designs without prior written perm
     </script>
 </body>
 </html>
+
